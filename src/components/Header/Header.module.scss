@@ -1,0 +1,48 @@
+.header {
+    position: fixed;
+    display: flex;
+    padding: 150px 150px 0 150px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  
+    &__logo {
+      display: flex;
+      width: 300px;
+    }
+  
+    &__burger {
+      position: relative;
+      width: 40px;
+      cursor: pointer;
+      transition: 0.5s ease-in-out;
+  
+      &-line {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background: white;
+        border-radius: 4px;
+        transition: 0.25s ease-in-out;
+  
+        &:nth-child(1) {
+          top: 0;
+        }
+  
+        &:nth-child(2) {
+          top: 10px; /* Корректировка для лучшего отображения */
+        }
+      }
+  
+      &__active &-line:nth-child(1) {
+        transform: rotate(45deg);
+        top: 10px;
+      }
+  
+      &__active &-line:nth-child(2) {
+        transform: rotate(-45deg);
+        top: 10px;
+      }
+    }
+  }
