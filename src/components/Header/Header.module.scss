@@ -1,26 +1,29 @@
 .header {
     position: fixed;
     display: flex;
-    padding: 150px 150px 0 150px;
+    padding: 90px 150px 0 150px;
     align-items: center;
     justify-content: space-between;
     width: 100%;
   
     &__logo {
       display: flex;
-      width: 300px;
+      width: 450px;
+      margin-left: 147px;
     }
   
     &__burger {
       position: relative;
-      width: 40px;
+      display: flex;
+      width: 60px;
+      height: 20px;
       cursor: pointer;
       transition: 0.5s ease-in-out;
   
       &-line {
-        display: block;
+        display: flex;
         position: absolute;
-        height: 5px;
+        height: 7px;
         width: 100%;
         background: white;
         border-radius: 4px;
@@ -31,7 +34,7 @@
         }
   
         &:nth-child(2) {
-          top: 10px; /* Корректировка для лучшего отображения */
+          top: 10px;
         }
       }
   

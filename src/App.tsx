@@ -11,6 +11,7 @@ const App: React.FC = () => {
       <Header />
       {/* <Navbar /> */}
       <HeroSection />
+      {/* <EquipmentSection /> */}
       {/* <ContentSection />
       <Footer /> */}
     </>

@@ -18,8 +18,8 @@ const Header: React.FC = () => {
         }`}
         onClick={toggleBurger}
       >
-        <span className={styles['header__burger-line']}></span>
-        <span className={styles['header__burger-line']}></span>
+        <span className={styles['header__burger-line']}/>
+        <span className={styles['header__burger-line']}/>
       </div>
     </header>
   );
