@@ -1,15 +1,17 @@
+@import '../../styles/variables.scss';
+
 .header {
     position: fixed;
     display: flex;
-    padding: 90px 150px 0 150px;
+    padding: 0 9vw 0 15vw;;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: 130px;
   
     &__logo {
       display: flex;
       width: 450px;
-      margin-left: 147px;
     }
   
     &__burger {

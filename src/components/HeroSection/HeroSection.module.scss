@@ -1,50 +1,47 @@
 @import '../../styles/variables.scss';
 
 .hero {
-    width: 100%;
-    position: relative;
-    z-index: -1;
-
-    &__title {
-      position: absolute;
-      top: 26%;
-      left: 300px;
-      font-size: 55px;
-      font-weight: 600;
-      margin: 0;
-      color: $white;
-      max-width: 630px;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-    }
-
-    &__subtitle {
-      position: absolute;
-      top: 41%;
-      left: 300px;
-      font-size: 20px;
-      margin: 0;
-      color: $white;
-      max-width: 595px;
-      font-weight: 400;
-    }
-
-    &__hero-title {
-      position: absolute;
-      top: 79%;
-      left: 300px;
-      font-size: 55px;
-      font-weight: 600;
-      margin: 0;
-      color: #fff;
-      max-width: 500px;
-      text-transform: uppercase;
-      letter-spacing: 6px;
-    }
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
   
-    &__video {
-      object-fit: contain;
-      width: 100vw;
-      height: 100vh;
-    }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 69vw;
+    justify-content: center;
+    margin: 20vh 0 0 0;
+  }
+
+  &__title {
+    display: flex;
+    font-size: 55px;
+    font-weight: 600;
+    margin: 0;
+    color: $white;
+    max-width: 630px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+
+  &__subtitle {
+    display: flex;
+    font-size: 20px;
+    margin: 2vh 0 0 0;
+    color: $white;
+    max-width: 595px;
+    font-weight: 400;
+  }
+
+  &__hero-title {
+    display: flex;
+    font-size: 55px;
+    font-weight: 600;
+    margin: 20vh 0 0 0;
+    color: #fff;
+    max-width: 500px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+  }
 }
