@@ -1,0 +1,77 @@
+@import '../../styles/variables.scss';
+
+.support {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $background-red;
+
+  &__phone-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../vendor/images/SUPPORT.png');
+    background-size: contain; // Сохраняет пропорции изображения
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  &__content {
+    position: absolute;
+    top: 40%;
+    left: 20vw;
+    transform: translateY(-50%);
+    max-width: 50%;
+    color: #fff;
+    box-sizing: border-box;
+    opacity: 1;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    height: 35vh;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 90px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 450px;
+  }
+
+  &__icons {
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: end;
+  }
+
+  &__icon {
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+
+    &__phone {
+      background-image: url('../../vendor/images/buttons/button_mobile.svg');
+    }
+
+    &__telegram {
+      background-image: url('../../vendor/images/buttons/button_Tg.svg');
+    }
+  }
+}
