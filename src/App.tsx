@@ -7,6 +7,8 @@ import SupportSection from './components/Support/Support';
 import Shipping from './components/Shipping/Shipping';
 import Service from './components/Service/Sevice';
 import Spares from './components/Spares/Spares';
+import Community from './components/Community/Community';
+import Feedback from './components/Feedback/Feedback';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +21,8 @@ const App: React.FC = () => {
       <Shipping />
       <Service />
       <Spares />
+      <Community />
+      <Feedback />
     </>
   );
 };

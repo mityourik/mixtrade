@@ -1,0 +1,72 @@
+@import '../../styles/variables.scss';
+
+.community {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $background-black;
+
+  &__image {
+    position: absolute;
+    top: 0;
+    right: -35%;
+    width: 100%;
+    height: 100%;
+    background-image: url(/src/vendor/images/111.png);
+    background-color: #030303;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__content {
+    position: absolute;
+    top: 30%;
+    left: 15vw;
+    max-width: 40%;
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+  }
+
+  &__container {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 50px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.1;
+    max-width: 80%;
+    margin-top: 1vh;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &__telegram {
+      background-image: url('../../vendor/images/buttons/button_Tg.svg');
+    }
+
+    &__vk {
+      background-image: url('../../vendor/images/buttons/button_vk.png');
+    }
+  }
+}
