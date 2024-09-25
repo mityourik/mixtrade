@@ -5,9 +5,9 @@ const Feedback: React.FC = () => {
     <section className={styles.feedback}>
       <div className={styles.feedback__container}>
         <div className={styles.feedback__form}>
-          <h1 className={styles.feedback__title}>ОБРАТНАЯ СВЯЗЬ</h1>
+          <h1 className={styles.feedback__title}>обратная связь</h1>
           <p className={styles.feedback__description}>
-            Здесь вы можете задать интересующие вас вопросы.
+            Здесь вы можете задать интересующие Вас вопросы.
           </p>
           <form>
             <input
@@ -36,7 +36,7 @@ const Feedback: React.FC = () => {
         </div>
 
         <div className={styles.feedback__info}>
-          <p>
+          <p className={styles.feedback__text}>
             Чтобы не ждать ответа, звоните по телефону или переходите в удобный
             для Вас мессенджер.
           </p>
