@@ -9,6 +9,7 @@ import Service from './components/Service/Sevice';
 import Spares from './components/Spares/Spares';
 import Community from './components/Community/Community';
 import Feedback from './components/Feedback/Feedback';
+import Footer from './components/Footer/Footer';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       <Spares />
       <Community />
       <Feedback />
+      <Footer />
     </>
   );
 };
