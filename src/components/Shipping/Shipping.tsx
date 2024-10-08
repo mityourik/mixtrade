@@ -27,6 +27,7 @@ const Shipping: React.FC = () => {
           duration: 5,
           scrollTrigger: {
             trigger: section,
+            scroller: '.scroll-container',
             start: 'top bottom',
             end: 'bottom top',
             scrub: 3,
@@ -42,6 +43,7 @@ const Shipping: React.FC = () => {
           duration: 1,
           scrollTrigger: {
             trigger: section,
+            scroller: '.scroll-container',
             start: 'top 10%',
             end: 'top top',
             scrub: true,
@@ -53,10 +55,12 @@ const Shipping: React.FC = () => {
   }, []);
 
   return (
+    // <section className={`${styles.shipping} scroll-section`} ref={sectionRef}>
     <section className={styles.shipping} ref={sectionRef}>
+
       <div className={styles['shipping__airship-image']} ref={airshipImageRef}></div>
       <div className={styles['shipping__content']} ref={contentRef}>
-          <h1 className={styles['shipping__title']}>доставим куда угодно</h1>
+        <h1 className={styles['shipping__title']}>доставим куда угодно</h1>
       </div>
     </section>
   );

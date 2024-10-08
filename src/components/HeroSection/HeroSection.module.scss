@@ -1,21 +1,24 @@
 @import '../../styles/variables.scss';
 
 .hero {
+  position: relative;
   display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   
   &__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 69vw;
     justify-content: center;
-    margin: 20vh 0 0 0;
+    margin: 0;
+    z-index: 1;
   }
 
   &__title {
-    display: flex;
     font-size: 55px;
     font-weight: 600;
     margin: 0;
@@ -26,7 +29,6 @@
   }
 
   &__subtitle {
-    display: flex;
     font-size: 20px;
     margin: 2vh 0 0 0;
     color: $white;
@@ -35,13 +37,25 @@
   }
 
   &__hero-title {
-    display: flex;
     font-size: 55px;
     font-weight: 600;
-    margin: 20vh 0 0 0;
+    margin: 4vh 0 0 0;
     color: #fff;
     max-width: 500px;
     text-transform: uppercase;
     letter-spacing: 6px;
+  }
+
+  &__video {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    z-index: 0;
   }
 }

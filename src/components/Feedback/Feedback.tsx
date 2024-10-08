@@ -2,6 +2,7 @@ import styles from './Feedback.module.scss';
 
 const Feedback: React.FC = () => {
   return (
+    // <section className={`${styles.feedback} scroll-section`}>
     <section className={styles.feedback}>
       <div className={styles.feedback__container}>
         <div className={styles.feedback__form}>

@@ -4,6 +4,8 @@ import arrowImg from '../../vendor/images/buttons/button_back.png';
 
 const Spares = () => {
   return (
+    // <section className={`${styles.spares} scroll-section`}>
+
     <section className={styles.spares}>
       <div className={styles['spares__content']}>
         <h1 className={styles['spares__title']}>

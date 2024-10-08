@@ -2,6 +2,8 @@ import styles from './Community.module.scss';
 
 const Community: React.FC = () => {
   return (
+    // <section className={`${styles.community} scroll-section`}>
+
     <section className={styles.community}>
       <div className={styles['community__image']}></div>
       <div className={styles['community__content']}>

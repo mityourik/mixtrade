@@ -1,12 +1,12 @@
 import styles from './Guarantee.module.scss';
-import useParallaxEffect from '../../utlis/useParallax/useParallaxEffect';
 import guaranteeImg from '../../vendor/images/guarantee.png';
 import arrowImg from '../../vendor/images/button_back.png';
 
 const Guarantee: React.FC = () => {
-  useParallaxEffect();
 
   return (
+    // <section className={`${styles.guarantee} scroll-section`}>
+
     <section className={styles.guarantee}>
       <div className={styles['guarantee__content']}>
         <h1 className={styles['guarantee__title']}>14</h1>

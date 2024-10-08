@@ -4,6 +4,7 @@ import bm670img from '../../vendor/images/buttons/button_bm670.png';
 
 const Equip: React.FC = () => {
   return (
+    // <section className={`${styles.equip} scroll-section`}>
     <section className={styles.equip}>
       <div className={styles['equip__grid']}>
         <h1 className={styles['equip__title']}>bm-670</h1>

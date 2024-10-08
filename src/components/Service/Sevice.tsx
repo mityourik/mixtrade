@@ -1,9 +1,11 @@
 import styles from './Service.module.scss';
-import serviceImg from '../../vendor/images/66.png';
+import serviceImg from '../../vendor/images/servis.png';
 import arrowImg from '../../vendor/images/buttons/button_back.png';
 
 const Service: React.FC = () => {
   return (
+    // <section className={`${styles.service} scroll-section`}>
+
     <section className={styles.service}>
       <div className={styles['service__content']}>
         <h1 className={styles['service__title']}>сервисное обслуживание</h1>
