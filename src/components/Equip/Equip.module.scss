@@ -1,120 +1,122 @@
 @import '../../styles/variables.scss';
 
 .equip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $background-red;
+  height: 100vh;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) min-content;
+    grid-template-rows: min-content min-content 1fr min-content;
+    grid-template-areas:
+      "title image image arrow-right"
+      "subtitle image image ."
+      "text image image ."
+      "arrow-left image image about";
+    gap: 20px;
+    max-width: 70vw;
+    max-height: 60vh;
+    margin: 0 auto;
+  }
+
+  &__title {
+    grid-area: title;
+    font-size: 100px;
+    line-height: 97px;
+    font-weight: 600;
+    margin: 0;
+    color: $white;
+    max-width: 630px;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    grid-area: subtitle;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 31px;
+    font-weight: 600;
+    color: $white;
+    margin: 0;
+  }
+
+  &__text {
+    grid-area: text;
+    font-size: 20px;
+    font-weight: 400;
+    color: $white;
+    max-width: 395px;
+    margin: 20px 0 0 0;
+  }
+
+  &__button_back {
+    grid-area: arrow-left;
+    align-self: center;
+    justify-self: flex-end;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-image: url('../../vendor/images/button_back.png');
+    background-size: contain;
+  }
+
+  &__button_forward {
+    grid-area: arrow-right;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-image: url('../../vendor/images/button_back.png');
+    background-size: contain;
+    transform: rotate(180deg);
+  }
+
+  &__about-button {
+    grid-area: about;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: $white;
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  &__about-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  &__container-image {
+    grid-area: image;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $background-red;
-    height: 100vh;
+    box-sizing: border-box;
+  }
 
-    &__grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr) min-content;
-        grid-template-rows: min-content min-content 1fr min-content;
-        grid-template-areas: 
-            "title image image arrow-right"
-            "subtitle image image ."
-            "text image image ."
-            "arrow-left image image about";
-        gap: 20px;
-        max-width: 70vw;
-        max-height: 60vh;
-        margin: 0 auto;
-    }
-
-    &__title {
-        grid-area: title;
-        font-size: 100px;
-        line-height: 97px;
-        font-weight: 600;
-        margin: 0;
-        color: $white;
-        max-width: 630px;
-        text-transform: uppercase;
-    }
-
-    &__subtitle {
-        grid-area: subtitle;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        font-size: 31px;
-        font-weight: 600;
-        color: $white;
-        margin: 0;
-    }
-
-    &__text {
-        grid-area: text;
-        font-size: 20px;
-        font-weight: 400;
-        color: $white;
-        max-width: 395px;
-        margin: 20px 0 0 0;
-    }
-
-    &__button_back {
-        grid-area: arrow-left;
-        align-self: center;
-        justify-self: flex-end;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        width: 100px;
-        height: 100px;
-        background-image: url('../../vendor/images/button_back.png');
-        background-size: contain;
-    }
-
-    &__button_forward {
-        grid-area: arrow-right;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        width: 100px;
-        height: 100px;
-        background-image: url('../../vendor/images/button_back.png');
-        background-size: contain;
-        transform: rotate(180deg);
-    }
-
-    &__about-button {
-        grid-area: about;
-        background-color: transparent;
-        border: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        color: $white;
-        font-size: 25px;
-        font-weight: 500;
-    }
-    
-    &__about-image {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
-    }
-
-    &__container-image {
-        grid-area: image;
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        max-height: 100%;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-    }
-      
-      &__image {
-        width: 86%;
-        height: auto;
-        max-width: none;
-        max-height: none;
-        object-fit: cover;
-        box-sizing: border-box;
-    }
+  &__image {
+    width: 86%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.5));
+    margin-top: -70px;
+  }
 }

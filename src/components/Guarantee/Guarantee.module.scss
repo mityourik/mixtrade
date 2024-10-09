@@ -13,10 +13,11 @@
     position: relative;
     z-index: 2;
     text-align: left;
-    color: #fff;
+    color: $white;
     max-width: 40%;
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   &__title {

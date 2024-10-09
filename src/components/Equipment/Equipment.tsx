@@ -10,7 +10,7 @@ const Equipment: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const hasPlayedRef = useRef<boolean>(false); // Добавлено: флаг для отслеживания воспроизведения
+  const hasPlayedRef = useRef<boolean>(false);
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
@@ -42,7 +42,6 @@ const Equipment: React.FC = () => {
     }
 
     if (videoElement && sectionElement && scroller) {
-      // Используем Intersection Observer для воспроизведения видео
       const observerOptions = {
         root: scroller as Element,
         threshold: 0.5,
@@ -52,7 +51,7 @@ const Equipment: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasPlayedRef.current) {
             videoElement.play();
-            hasPlayedRef.current = true; // Устанавливаем флаг, что видео уже проиграно
+            hasPlayedRef.current = true;
           }
         });
       };
@@ -74,14 +73,13 @@ const Equipment: React.FC = () => {
         muted
         playsInline
         preload="auto"
-        // Убедитесь, что атрибут loop не установлен
       >
         <source src={backgroundVideo} type="video/mp4" />
         Ваш браузер не поддерживает тег видео.
       </video>
       <div className={styles['equipment__overlay']}>
         <div className={styles['equipment__text']} ref={textRef}>
-          ОБОРУДОВАНИЕ
+          оборудование
         </div>
       </div>
     </section>
