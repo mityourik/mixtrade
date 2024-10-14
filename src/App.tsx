@@ -1,6 +1,6 @@
 import Header from './components/Header/Header';
 import Equip from './components/Equip/Equip';
-import HeroSection from './components/HeroSection/HeroSection';
+// import HeroSection from './components/HeroSection/HeroSection';
 import Guarantee from './components/Guarantee/Guarantee';
 import Support from './components/Support/Support';
 import Shipping from './components/Shipping/Shipping';
@@ -10,6 +10,7 @@ import Community from './components/Community/Community';
 import Feedback from './components/Feedback/Feedback';
 import Footer from './components/Footer/Footer';
 import Equipment from './components/Equipment/Equipment';
+import Hero from './components/Hero/Hero';
 
 import './App.css';
 
@@ -17,10 +18,8 @@ const App: React.FC = () => {
   return (
     <>
       <Header />
+      <Hero />
       <div className="scroll-container">
-        <div className="scroll-section">
-          <HeroSection />
-        </div>
         <div className="scroll-section">
           <Equipment />
         </div>
