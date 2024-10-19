@@ -1,6 +1,5 @@
 import Header from './components/Header/Header';
 import Equip from './components/Equip/Equip';
-// import HeroSection from './components/HeroSection/HeroSection';
 import Guarantee from './components/Guarantee/Guarantee';
 import Support from './components/Support/Support';
 import Shipping from './components/Shipping/Shipping';
@@ -18,8 +17,10 @@ const App: React.FC = () => {
   return (
     <>
       <Header />
-      <Hero />
       <div className="scroll-container">
+        <div className="scroll-section">
+          <Hero />
+        </div>
         <div className="scroll-section">
           <Equipment />
         </div>
