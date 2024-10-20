@@ -32,10 +32,11 @@ const Equipment: React.FC = () => {
           duration: 5,
           scrollTrigger: {
             trigger: sectionElement,
-            scroller: scroller,
+            // scroller: scroller,
             start: 'top bottom',
             end: 'bottom top',
             scrub: 3,
+            markers: true,
           },
         }
       );
@@ -43,7 +44,7 @@ const Equipment: React.FC = () => {
 
     if (videoElement && sectionElement && scroller) {
       const observerOptions = {
-        root: scroller as Element,
+        // root: scroller as Element,
         threshold: 0.5,
       };
 

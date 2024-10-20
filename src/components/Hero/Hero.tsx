@@ -33,20 +33,30 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    gsap.to({}, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        onUpdate: (self) => {
-          const frameIndex = Math.floor(self.progress * (frameCount - 1));
-          if (imageRef.current && loadedImages.length > 0) {
-            imageRef.current.src = loadedImages[frameIndex];
+    if (containerRef.current) {
+      const textContainer = containerRef.current.querySelector(`.${styles['hero__container']}`) as HTMLDivElement;
+
+      gsap.to({}, {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const frameIndex = Math.floor(progress * (frameCount - 1));
+            if (imageRef.current && loadedImages.length > 0) {
+              imageRef.current.src = loadedImages[frameIndex];
+            }
+
+            if (textContainer) {
+              const opacity = gsap.utils.clamp(0, 1, (progress - 0.6) / 0.4);
+              gsap.set(textContainer, { opacity });
+            }
           }
         }
-      }
-    });
+      });
+    }
   }, [loadedImages]);
 
   return (
@@ -61,8 +71,8 @@ const Hero: React.FC = () => {
       )}
       <div className={styles['hero__container']}>
         <h1 className={styles['hero__title']}>штукатурные бизнес решения</h1>
-        <p className={styles['hero__subtitle']}>Хотите добиться идеального баланса в своем бизнесе? 
-          С штукатурным оборудованием от Personiya вы сможете точно настроить свой бизнес процесс 
+        <p className={styles['hero__subtitle']}>Хотите добиться идеального баланса в своем бизнесе?
+          С штукатурным оборудованием от Personiya вы сможете точно настроить свой бизнес процесс
           на путь к успеху! Отличное оборудование - залог качественных результатов!
         </p>
         <h2 className={styles['hero__hero-title']}>персония хл от 600 000 р</h2>

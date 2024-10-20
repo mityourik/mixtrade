@@ -24,7 +24,7 @@ const Equip: React.FC = () => {
         ease: 'none',
         scrollTrigger: {
           trigger: sectionElement,
-          scroller: scroller,
+          // scroller: scroller,
           start: 'top bottom',
           end: 'bottom top',
           scrub: true,

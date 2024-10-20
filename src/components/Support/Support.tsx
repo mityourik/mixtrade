@@ -26,11 +26,11 @@ const Support: React.FC = () => {
           duration: 8,
           scrollTrigger: {
             trigger: section,
-            scroller: '.scroll-container', // Вернули scroller
+            // scroller: '.scroll-container',
             start: 'top bottom',
             end: 'bottom top',
             scrub: 5,
-            // markers: true, // Раскомментируйте для отладки
+            markers: true,
           },
         }
       );

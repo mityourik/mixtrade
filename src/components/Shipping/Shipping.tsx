@@ -27,7 +27,7 @@ const Shipping: React.FC = () => {
           duration: 5,
           scrollTrigger: {
             trigger: section,
-            scroller: '.scroll-container',
+            // scroller: '.scroll-container',
             start: 'top bottom',
             end: 'bottom top',
             scrub: 3,
@@ -43,7 +43,7 @@ const Shipping: React.FC = () => {
           duration: 1,
           scrollTrigger: {
             trigger: section,
-            scroller: '.scroll-container',
+            // scroller: '.scroll-container',
             start: 'top 10%',
             end: 'top top',
             scrub: true,

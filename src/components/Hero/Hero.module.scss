@@ -13,12 +13,16 @@
 
   &__container {
     position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -30%);
     display: flex;
     flex-direction: column;
     width: 69vw;
     justify-content: center;
     margin: 0;
     z-index: 1;
+    opacity: 0;
   }
 
   &__title {
