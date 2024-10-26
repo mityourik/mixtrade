@@ -1,0 +1,51 @@
+@import '../../styles/variables.scss';
+
+.about {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%; // Занимает всю ширину экрана
+  height: 100vh;
+  background-color: $background-black;
+  color: $white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 2000; // Ниже, чем у кнопки бургера
+  pointer-events: none; // Отключаем события мыши для корневого элемента
+
+  &--active {
+    transform: translateX(0);
+  }
+
+  &__content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    overflow-y: auto; // Позволяет прокручивать контент внутри About
+    pointer-events: auto; // Включаем события мыши для контента
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+}
