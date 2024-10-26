@@ -4,48 +4,61 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 100%; // Занимает всю ширину экрана
+  width: 100%;
   height: 100vh;
   background-color: $background-black;
   color: $white;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   overflow: hidden;
-  z-index: 2000; // Ниже, чем у кнопки бургера
-  pointer-events: none; // Отключаем события мыши для корневого элемента
+  z-index: 2000;
+  pointer-events: none;
 
   &--active {
     transform: translateX(0);
+    pointer-events: auto;
   }
 
   &__content {
-    padding: 2rem;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
     height: 100%;
-    overflow-y: auto; // Позволяет прокручивать контент внутри About
-    pointer-events: auto; // Включаем события мыши для контента
+    padding: 4rem 6rem;
   }
 
-  &__image {
-    width: 100%;
-    margin-bottom: 1rem;
+  &__column {
+    flex: 1;
+    padding: 0 2rem;
+    overflow-y: auto;
+
+    &:first-child {
+      margin-right: 3rem;
+    }
   }
 
-  &__text {
-    margin-bottom: 1.5rem;
+  &__imageContainer {
+    position: relative;
+    margin-bottom: 2rem;
+
+    .about__image {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      object-fit: cover;
+    }
   }
 
   &__title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    text-transform: uppercase;
   }
 
   &__description {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
 }

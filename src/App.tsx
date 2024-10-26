@@ -21,9 +21,9 @@ const App: React.FC = () => {
         <div className="scroll-section">
           <Hero />
         </div>
-        <div className="scroll-section">
+        {/* <div className="scroll-section">
           <Equipment />
-        </div>
+        </div> */}
         <div className="scroll-section">
           <Equip />
         </div>
