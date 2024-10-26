@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Equipment.module.scss';
-import backgroundVideo from '../../vendor/images/beton_120fps.mp4';
+// import backgroundVideo from '../../vendor/images/beton_120fps.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
