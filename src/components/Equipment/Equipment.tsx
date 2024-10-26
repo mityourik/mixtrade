@@ -68,7 +68,7 @@ const Equipment: React.FC = () => {
 
   return (
     <section className={styles.equipment} ref={sectionRef}>
-      <video
+      {/* <video
         className={styles['equipment__video']}
         ref={videoRef}
         muted
@@ -77,7 +77,7 @@ const Equipment: React.FC = () => {
       >
         <source src={backgroundVideo} type="video/mp4" />
         Ваш браузер не поддерживает тег видео.
-      </video>
+      </video> */}
       <div className={styles['equipment__overlay']}>
         <div className={styles['equipment__text']} ref={textRef}>
           оборудование
