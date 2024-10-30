@@ -36,7 +36,7 @@ const Equipment: React.FC = () => {
             start: 'top bottom',
             end: 'bottom top',
             scrub: 3,
-            markers: true,
+            // markers: true,
           },
         }
       );

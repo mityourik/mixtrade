@@ -8,7 +8,7 @@ import Spares from './components/Spares/Spares';
 import Community from './components/Community/Community';
 import Feedback from './components/Feedback/Feedback';
 import Footer from './components/Footer/Footer';
-import Equipment from './components/Equipment/Equipment';
+// import Equipment from './components/Equipment/Equipment';
 import Hero from './components/Hero/Hero';
 
 import './App.css';

@@ -24,8 +24,8 @@ const About: React.FC<AboutProps> = ({ isActive }) => {
     <div className={`${styles.about} ${isActive ? styles['about--active'] : ''}`}>
       <div className={styles.about__content}>
         <div className={styles.about__column}>
-          <div className={styles.about__imageContainer}>
-            <img className={styles.about__image} src={logoImage} alt="PerSonia Logo" />
+          <div className={styles['about__image-container']}>
+            <img className={styles.about__image} src={logoImage} alt="Logo Personia" />
           </div>
           <h2 className={styles.about__title}>О компании</h2>
           <p className={styles.about__description}>

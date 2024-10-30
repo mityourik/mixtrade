@@ -26,11 +26,10 @@ const Support: React.FC = () => {
           duration: 8,
           scrollTrigger: {
             trigger: section,
-            // scroller: '.scroll-container',
             start: 'top bottom',
             end: 'bottom top',
             scrub: 5,
-            markers: true,
+            // markers: true,
           },
         }
       );
@@ -48,7 +47,7 @@ const Support: React.FC = () => {
             scroller: '.scroll-container',
             start: 'top 80%',
             toggleActions: 'play none none none',
-            markers: true,
+            // markers: true,
           },
         }
       );
