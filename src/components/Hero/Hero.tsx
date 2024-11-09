@@ -107,12 +107,12 @@ const images = import.meta.glob('../../vendor/images/frames/*.jpg');
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
-  const [loadedImages, setLoadedImages] = useState<string[]>([]);
+  const [loadedImages, setLoadedImages] = useState<HTMLImageElement[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const loadImages = async () => {
-      const imagePaths: string[] = [];
+      const imageElements: HTMLImageElement[] = [];
       const loadedImagesPromises: Promise<void>[] = [];
 
       const paths = Object.keys(images);
@@ -133,22 +133,27 @@ const Hero: React.FC = () => {
       for (const path of paths) {
         const module = (await images[path]()) as { default: string };
         const imageUrl = module.default;
-        imagePaths.push(imageUrl);
 
-        // Предварительная загрузка изображения
+        // Создаем объект Image и загружаем изображение
         const img = new Image();
         img.src = imageUrl;
-        const imgPromise = new Promise<void>((resolve, reject) => {
-          img.onload = () => resolve();
-          img.onerror = () => reject();
-        });
+
+        // Предварительная загрузка и декодирование изображения
+        const imgPromise = img.decode()
+          .then(() => {
+            imageElements.push(img);
+          })
+          .catch((error) => {
+            console.error(`Ошибка при декодировании изображения ${imageUrl}:`, error);
+          });
+
         loadedImagesPromises.push(imgPromise);
       }
 
-      // Ждем, пока все изображения загрузятся
+      // Ждем, пока все изображения загрузятся и декодируются
       try {
         await Promise.all(loadedImagesPromises);
-        setLoadedImages(imagePaths);
+        setLoadedImages(imageElements);
         setIsLoaded(true);
       } catch (error) {
         console.error('Ошибка при загрузке изображений:', error);
@@ -174,7 +179,8 @@ const Hero: React.FC = () => {
             const progress = self.progress;
             const frameIndex = Math.floor(progress * (loadedImages.length - 1));
             if (imageRef.current && loadedImages.length > 0) {
-              imageRef.current.src = loadedImages[frameIndex];
+              const currentImage = loadedImages[frameIndex];
+              imageRef.current.src = currentImage.src;
             }
 
             if (textContainer) {
@@ -197,7 +203,7 @@ const Hero: React.FC = () => {
             <img
               className={styles['hero__frame']}
               ref={imageRef}
-              src={loadedImages[0]}
+              src={loadedImages[0].src}
               alt="scroll video frame"
             />
           )}
