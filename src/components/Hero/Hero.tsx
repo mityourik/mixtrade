@@ -102,9 +102,7 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const frameCount = 160;
-
-const images = import.meta.glob('../../vendor/images/frames1/*.jpg');
+const images = import.meta.glob('../../vendor/images/frames/*.jpg');
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -115,9 +113,11 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const loadImages = async () => {
       const imagePaths: string[] = [];
+      const loadedImagesPromises: Promise<void>[] = [];
 
       const paths = Object.keys(images);
 
+      // Сортируем пути к изображениям по номеру кадра
       paths.sort((a, b) => {
         const regex = /.*_([0-9]+)\.jpg$/;
         const matchA = a.match(regex);
@@ -132,14 +132,27 @@ const Hero: React.FC = () => {
 
       for (const path of paths) {
         const module = (await images[path]()) as { default: string };
-        imagePaths.push(module.default);
+        const imageUrl = module.default;
+        imagePaths.push(imageUrl);
+
+        // Предварительная загрузка изображения
+        const img = new Image();
+        img.src = imageUrl;
+        const imgPromise = new Promise<void>((resolve, reject) => {
+          img.onload = () => resolve();
+          img.onerror = () => reject();
+        });
+        loadedImagesPromises.push(imgPromise);
       }
 
-      // Тестовая задержка в 3 секунды
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-
-      setLoadedImages(imagePaths);
-      setIsLoaded(true);
+      // Ждем, пока все изображения загрузятся
+      try {
+        await Promise.all(loadedImagesPromises);
+        setLoadedImages(imagePaths);
+        setIsLoaded(true);
+      } catch (error) {
+        console.error('Ошибка при загрузке изображений:', error);
+      }
     };
 
     loadImages();
@@ -193,7 +206,7 @@ const Hero: React.FC = () => {
             <p className={styles['hero__subtitle']}>
               Хотите добиться идеального баланса в своем бизнесе? С штукатурным оборудованием от
               Personiya вы сможете точно настроить свой бизнес процесс на путь к успеху! Отличное
-              оборудование - залог качественных результатов!
+              оборудование — залог качественных результатов!
             </p>
             <h2 className={styles['hero__hero-title']}>персония хл от 600 000 р</h2>
           </div>
