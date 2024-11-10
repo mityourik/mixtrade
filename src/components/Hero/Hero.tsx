@@ -5,19 +5,17 @@
 
 // gsap.registerPlugin(ScrollTrigger);
 
-// const frameCount = 160;
-
 // const images = import.meta.glob('../../vendor/images/frames/*.jpg');
 
 // const Hero: React.FC = () => {
 //   const containerRef = useRef<HTMLDivElement | null>(null);
 //   const imageRef = useRef<HTMLImageElement | null>(null);
 //   const [loadedImages, setLoadedImages] = useState<string[]>([]);
+//   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
 
 //   useEffect(() => {
 //     const loadImages = async () => {
 //       const imagePaths: string[] = [];
-
 //       const paths = Object.keys(images);
 
 //       paths.sort((a, b) => {
@@ -32,19 +30,32 @@
 //         return 0;
 //       });
 
+//       // Сначала получаем все пути изображений в правильном порядке
 //       for (const path of paths) {
 //         const module = await images[path]() as { default: string };
 //         imagePaths.push(module.default);
 //       }
 
+//       // Предзагрузка изображений
+//       const promises = imagePaths.map((imgSrc) => {
+//         return new Promise<void>((resolve, reject) => {
+//           const img = new Image();
+//           img.src = imgSrc;
+//           img.onload = () => resolve();
+//           img.onerror = reject;
+//         });
+//       });
+
+//       await Promise.all(promises);
 //       setLoadedImages(imagePaths);
+//       setImagesLoaded(true);
 //     };
 
 //     loadImages();
 //   }, []);
 
 //   useEffect(() => {
-//     if (containerRef.current) {
+//     if (imagesLoaded && containerRef.current) {
 //       const textContainer = containerRef.current.querySelector(`.${styles['hero__container']}`) as HTMLDivElement;
 
 //       gsap.to({}, {
@@ -68,7 +79,11 @@
 //         }
 //       });
 //     }
-//   }, [loadedImages]);
+//   }, [imagesLoaded, loadedImages]);
+
+//   if (!imagesLoaded) {
+//     return <div className={styles['loading']}>Загрузка...</div>;
+//   }
 
 //   return (
 //     <div className={styles['hero']} ref={containerRef}>
@@ -82,9 +97,8 @@
 //       )}
 //       <div className={styles['hero__container']}>
 //         <h1 className={styles['hero__title']}>штукатурные бизнес решения</h1>
-//         <p className={styles['hero__subtitle']}>Хотите добиться идеального баланса в своем бизнесе?
-//           С штукатурным оборудованием от Personiya вы сможете точно настроить свой бизнес процесс
-//           на путь к успеху! Отличное оборудование - залог качественных результатов!
+//         <p className={styles['hero__subtitle']}>
+//           Хотите добиться идеального баланса в своем бизнесе? С штукатурным оборудованием от Personiya вы сможете точно настроить свой бизнес процесс на путь к успеху! Отличное оборудование - залог качественных результатов!
 //         </p>
 //         <h2 className={styles['hero__hero-title']}>персония хл от 600 000 р</h2>
 //       </div>
@@ -107,7 +121,8 @@ const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
-  const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
+  const [imagesLoadedCount, setImagesLoadedCount] = useState<number>(0);
+  const [totalImages, setTotalImages] = useState<number>(0);
 
   useEffect(() => {
     const loadImages = async () => {
@@ -126,32 +141,36 @@ const Hero: React.FC = () => {
         return 0;
       });
 
-      // Сначала получаем все пути изображений в правильном порядке
+      // Получаем все пути изображений в правильном порядке
       for (const path of paths) {
         const module = await images[path]() as { default: string };
         imagePaths.push(module.default);
       }
 
-      // Предзагрузка изображений
+      setTotalImages(imagePaths.length);
+
+      // Предзагрузка изображений с отслеживанием прогресса
       const promises = imagePaths.map((imgSrc) => {
         return new Promise<void>((resolve, reject) => {
           const img = new Image();
           img.src = imgSrc;
-          img.onload = () => resolve();
+          img.onload = () => {
+            setImagesLoadedCount((prev) => prev + 1);
+            resolve();
+          };
           img.onerror = reject;
         });
       });
 
       await Promise.all(promises);
       setLoadedImages(imagePaths);
-      setImagesLoaded(true);
     };
 
     loadImages();
   }, []);
 
   useEffect(() => {
-    if (imagesLoaded && containerRef.current) {
+    if (loadedImages.length > 0 && containerRef.current) {
       const textContainer = containerRef.current.querySelector(`.${styles['hero__container']}`) as HTMLDivElement;
 
       gsap.to({}, {
@@ -175,10 +194,21 @@ const Hero: React.FC = () => {
         }
       });
     }
-  }, [imagesLoaded, loadedImages]);
+  }, [loadedImages]);
 
-  if (!imagesLoaded) {
-    return <div className={styles['loading']}>Загрузка...</div>;
+  if (imagesLoadedCount < totalImages) {
+    const progressPercentage = Math.round((imagesLoadedCount / totalImages) * 100);
+    return (
+      <div className={styles['loading']}>
+        Загрузка... {progressPercentage}%
+        <div className={styles['progress-bar']}>
+          <div
+            className={styles['progress-bar__fill']}
+            style={{ width: `${progressPercentage}%` }}
+          ></div>
+        </div>
+      </div>
+    );
   }
 
   return (
