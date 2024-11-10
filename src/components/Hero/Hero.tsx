@@ -107,7 +107,7 @@ const startingFrameNumber = 1000; // Начальный номер кадра (�
 
 const images = Array.from({ length: totalFrames }, (_, index) => {
   const frameNumber = startingFrameNumber + index;
-  return `mixtrade/images/frames/Composition_1_${frameNumber}.jpg`;
+  return `/images/frames/Composition_1_${frameNumber}.jpg`;
 });
 
 const Hero: React.FC = () => {
