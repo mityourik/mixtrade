@@ -115,7 +115,7 @@ import styles from "./Hero.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const images = import.meta.glob('../../vendor/images/frames/*.jpg');
+const images = import.meta.glob('../../vendor/images/frames/*.jpg', { eager: true });
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
   const [totalImages, setTotalImages] = useState<number>(0);
 
   useEffect(() => {
-    const loadImages = async () => {
+    const loadImages = () => {
       const imagePaths: string[] = [];
       const paths = Object.keys(images);
 
@@ -143,7 +143,7 @@ const Hero: React.FC = () => {
 
       // Получение всех путей изображений
       for (const path of paths) {
-        const module = (await images[path]()) as { default: string };
+        const module = images[path] as { default: string };
         imagePaths.push(module.default);
       }
 
@@ -166,8 +166,9 @@ const Hero: React.FC = () => {
         });
       });
 
-      await Promise.all(promises);
-      setLoadedImages(imagePaths);
+      Promise.all(promises).then(() => {
+        setLoadedImages(imagePaths);
+      });
     };
 
     loadImages();
@@ -186,17 +187,17 @@ const Hero: React.FC = () => {
           end: "bottom bottom",
           scrub: true,
           onUpdate: (self) => {
-          const progress = self.progress;
-          const frameIndex = Math.floor(progress * (loadedImages.length - 1));
-          if (imageRef.current && loadedImages.length > 0) {
-            imageRef.current.src = loadedImages[frameIndex];
-          }
+            const progress = self.progress;
+            const frameIndex = Math.floor(progress * (loadedImages.length - 1));
+            if (imageRef.current && loadedImages.length > 0) {
+              imageRef.current.src = loadedImages[frameIndex];
+            }
 
-          if (textContainer) {
-            const opacity = gsap.utils.clamp(0, 1, (progress - 0.6) / 0.4);
-            gsap.set(textContainer, { opacity });
+            if (textContainer) {
+              const opacity = gsap.utils.clamp(0, 1, (progress - 0.6) / 0.4);
+              gsap.set(textContainer, { opacity });
+            }
           }
-        }
         }
       });
     }
