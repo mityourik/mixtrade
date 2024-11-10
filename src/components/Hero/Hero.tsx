@@ -115,39 +115,23 @@ import styles from "./Hero.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const images = import.meta.glob('../../vendor/images/frames/*.jpg');
+const frameCount = 160; // Общее количество кадров
+const imageBasePath = '/vendor/images/frames/frame_'; // Базовый путь к изображениям
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
   const [imagesLoadedCount, setImagesLoadedCount] = useState<number>(0);
-  const [totalImages, setTotalImages] = useState<number>(0);
 
   useEffect(() => {
     const loadImages = async () => {
       const imagePaths: string[] = [];
-      const paths = Object.keys(images);
-
-      paths.sort((a, b) => {
-        const regex = /.*_([0-9]+)\.jpg$/;
-        const matchA = a.match(regex);
-        const matchB = b.match(regex);
-        if (matchA && matchB) {
-          const numA = parseInt(matchA[1], 10);
-          const numB = parseInt(matchB[1], 10);
-          return numA - numB;
-        }
-        return 0;
-      });
-
-      // Получаем все пути изображений в правильном порядке
-      for (const path of paths) {
-        const module = await images[path]() as { default: string };
-        imagePaths.push(module.default);
+      for (let i = 1; i <= frameCount; i++) {
+        // Предполагаем, что изображения названы как frame_1.jpg, frame_2.jpg и т.д.
+        const imagePath = `${imageBasePath}${i}.jpg`;
+        imagePaths.push(imagePath);
       }
-
-      setTotalImages(imagePaths.length);
 
       // Предзагрузка изображений с отслеживанием прогресса
       const promises = imagePaths.map((imgSrc) => {
@@ -196,8 +180,8 @@ const Hero: React.FC = () => {
     }
   }, [loadedImages]);
 
-  if (imagesLoadedCount < totalImages) {
-    const progressPercentage = Math.round((imagesLoadedCount / totalImages) * 100);
+  if (imagesLoadedCount < frameCount) {
+    const progressPercentage = Math.round((imagesLoadedCount / frameCount) * 100);
     return (
       <div className={styles['loading']}>
         Загрузка... {progressPercentage}%
