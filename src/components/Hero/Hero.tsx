@@ -102,7 +102,13 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const images = import.meta.glob('../../vendor/images/frames/*.jpg');
+const totalFrames = 160; // Замените на фактическое количество кадров
+const startingFrameNumber = 1000; // Начальный номер кадра (замените на свой)
+
+const images = Array.from({ length: totalFrames }, (_, index) => {
+  const frameNumber = startingFrameNumber + index;
+  return `mixtrade/images/frames/Composition_1_${frameNumber}.jpg`;
+});
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -115,42 +121,24 @@ const Hero: React.FC = () => {
       const imageElements: HTMLImageElement[] = [];
       const loadedImagesPromises: Promise<void>[] = [];
 
-      const paths = Object.keys(images);
-
-      // Сортируем пути к изображениям по номеру кадра
-      paths.sort((a, b) => {
-        const regex = /.*_([0-9]+)\.jpg$/;
-        const matchA = a.match(regex);
-        const matchB = b.match(regex);
-        if (matchA && matchB) {
-          const numA = parseInt(matchA[1], 10);
-          const numB = parseInt(matchB[1], 10);
-          return numA - numB;
-        }
-        return 0;
-      });
-
-      for (const path of paths) {
-        const module = (await images[path]()) as { default: string };
-        const imageUrl = module.default;
-
-        // Создаем объект Image и загружаем изображение
+      for (const imageUrl of images) {
         const img = new Image();
         img.src = imageUrl;
 
-        // Предварительная загрузка и декодирование изображения
-        const imgPromise = img.decode()
-          .then(() => {
+        const imgPromise = new Promise<void>((resolve, reject) => {
+          img.onload = () => {
             imageElements.push(img);
-          })
-          .catch((error) => {
-            console.error(`Ошибка при декодировании изображения ${imageUrl}:`, error);
-          });
+            resolve();
+          };
+          img.onerror = (error) => {
+            console.error(`Ошибка при загрузке изображения ${imageUrl}:`, error);
+            reject(error);
+          };
+        });
 
         loadedImagesPromises.push(imgPromise);
       }
 
-      // Ждем, пока все изображения загрузятся и декодируются
       try {
         await Promise.all(loadedImagesPromises);
         setLoadedImages(imageElements);
