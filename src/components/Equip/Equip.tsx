@@ -60,7 +60,7 @@
 
 import React from 'react';
 import styles from './Equip.module.scss';
-import mixer from '../../vendor/images/mixcement.png';
+import mixer from '../../vendor/images/mixcement1.png';
 import bm670img from '../../vendor/images/buttons/button_bm670.png';
 
 const Equip: React.FC = () => {
