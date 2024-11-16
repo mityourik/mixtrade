@@ -1,36 +1,61 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .equipment {
   position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  height: 200vh;
 
-  &__video {
-    position: absolute;
+  &__background {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  &__overlay {
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-  }
-
-  &__overlay {
-    position: relative;
-    z-index: 2;
-    height: 100%;
     display: flex;
-    justify-content: flex-start;
+    align-items: center;   // Вертикальное центрирование контента
+    justify-content: flex-end; // Горизонтальное выравнивание по правому краю
+    pointer-events: none;  // Чтобы overlay не мешал прокрутке или кликам
+    z-index: 1;
   }
 
   &__text {
     font-size: 12rem;
     font-weight: 900;
-    color: $white;
+    color: white;
     padding: 0;
     white-space: nowrap;
-    margin: 200px 0 0 0;
+    margin: 0;  // Убираем отступы, чтобы текст был по центру по вертикали
     text-transform: uppercase;
     letter-spacing: -7px;
+    pointer-events: auto;  // Разрешаем взаимодействие с текстом, если нужно
+  }
+
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .progress-bar {
+    width: 80%;
+    height: 20px;
+    background-color: #e0e0e0;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-bar__fill {
+    height: 100%;
+    background-color: #3b82f6;
+    transition: width 0.3s ease;
   }
 }

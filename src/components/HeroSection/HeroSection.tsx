@@ -1,5 +1,5 @@
 import styles from './HeroSection.module.scss';
-import heroVideo from '../../vendor/images/top-desktop-120fps.mp4';
+import heroVideo from '../../vendor/images/video/xl_web_60fps.mp4';
 
 const HeroSection: React.FC = () => {
   return (

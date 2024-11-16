@@ -14,6 +14,8 @@ import Service from './components/Service/Sevice';
 import GuaranteeCity from './components/GuaranteeCity/GuaranteeCity';
 
 import './App.css';
+import Equipment from './components/Equipment/Equipment';
+import HeroSection from './components/HeroSection/HeroSection';
 
 const App: React.FC = () => {
   return (
@@ -23,7 +25,10 @@ const App: React.FC = () => {
         <Route path="/mixtrade" element={
           <div className="scroll-container">
             <div className="scroll-section">
-              <Hero />
+              <HeroSection />
+            </div>
+            <div className="scroll-section">
+              <Equipment />
             </div>
             <div className="scroll-section">
               <Equip />

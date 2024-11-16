@@ -31,7 +31,6 @@ const Hero: React.FC = () => {
         return 0;
       });
 
-      // Получение всех путей изображений
       for (const path of paths) {
         const module = images[path] as { default: string };
         imagePaths.push(module.default);
