@@ -8,18 +8,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   &__container {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 69vw;
     justify-content: center;
-    align-items: center;
     margin: 0;
+    left: 15vw;
     z-index: 2;
-    text-align: center;
+    text-align: left;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
@@ -51,7 +50,7 @@
   &__hero-title {
     font-size: 55px;
     font-weight: 600;
-    margin: 4vh 0 0 0;
+    margin: 25vh 0 0 0;
     color: $white;
     max-width: 500px;
     text-transform: uppercase;

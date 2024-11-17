@@ -9,7 +9,6 @@ import Spares from './components/Spares/Spares';
 import Community from './components/Community/Community';
 import Feedback from './components/Feedback/Feedback';
 import Footer from './components/Footer/Footer';
-import Hero from './components/Hero/Hero';
 import Service from './components/Service/Sevice';
 import GuaranteeCity from './components/GuaranteeCity/GuaranteeCity';
 

@@ -34,7 +34,7 @@
     margin: 3vh 0 0 0;
   }
 
-  &__arrow-container {
+  &__arrow_container {
     margin-top: auto;
     position: relative;
   }
@@ -47,7 +47,7 @@
     text-decoration: none;
   }
 
-  &__back-link {
+  &__back_link {
     position: absolute;
     bottom: 0;
     left: -32px;
@@ -63,7 +63,7 @@
     padding-top: 1vh;
   }
 
-  &__image-container {
+  &__image_container {
     position: absolute;
     top: 0;
     right: 0;
@@ -88,7 +88,7 @@
     right: 15vw;
     height: 100%;
     color: $white;
-    padding: 15vh 1vw 15vh 1vw;
+    padding: 15vh 1vw 10vh 2vw;
     overflow-y: auto;
     opacity: 0;
     visibility: hidden;
@@ -97,11 +97,15 @@
     column-gap: 2rem;
     z-index: 2;
 
-    p,
-    ul {
+    &__paragraph {
       margin-bottom: 1.1rem;
       font-size: 1.1rem;
       line-height: 1.3;
+    }
+
+    &__visible {
+      opacity: 1;
+      visibility: visible;
     }
 
     ul {
