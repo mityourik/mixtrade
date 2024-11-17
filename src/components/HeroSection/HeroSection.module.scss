@@ -5,22 +5,28 @@
   height: 100vh;
   overflow: hidden;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &__container {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
-    left: 14.3vw;
-    top: 25vh;
+    width: 69vw;
     justify-content: center;
+    align-items: center;
     margin: 0;
     z-index: 2;
-    text-align: left;
+    text-align: center;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 
     &.visible {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -54,7 +60,7 @@
 
   &__button {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -63,15 +69,16 @@
     font-weight: 600;
     color: $white;
     background-color: transparent;
-    border: none;
+    border: 2px solid $white;
     border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 
     &:hover {
-      background-color: darken($background-red, 10%);
+      background-color: rgba(255, 255, 255, 0.2);
+      color: $white;
     }
   }
 
@@ -84,5 +91,6 @@
     min-height: 100%;
     object-fit: cover;
     z-index: 1;
+    pointer-events: none; // Отключаем взаимодействие с видео
   }
 }

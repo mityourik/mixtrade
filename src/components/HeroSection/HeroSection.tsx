@@ -9,8 +9,18 @@ const HeroSection: React.FC = () => {
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
-      videoRef.current.play();
-      setIsVideoPlaying(true);
+      videoRef.current.muted = true; // Убедимся, что видео без звука
+      const playPromise = videoRef.current.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsVideoPlaying(true);
+          })
+          .catch((error) => {
+            console.error('Ошибка при попытке воспроизвести видео:', error);
+          });
+      }
     }
   };
 
@@ -35,24 +45,37 @@ const HeroSection: React.FC = () => {
   return (
     <section className={styles.hero}>
       {!isVideoPlaying && (
-        <button className={styles.hero__button} onClick={handlePlayVideo}>
+        <button
+          type="button"
+          className={styles.hero__button}
+          onClick={handlePlayVideo}
+        >
           Увидеть
         </button>
       )}
-      <div className={`${styles.hero__container} ${showMainText ? styles.visible : ''}`}>
+      <div
+        className={`${styles.hero__container} ${
+          showMainText ? styles.visible : ''
+        }`}
+      >
         <h1 className={styles.hero__title}>штукатурные бизнес решения</h1>
         <p className={styles.hero__subtitle}>
           Хотите добиться идеального баланса в своем бизнесе?
-          С штукатурным оборудованием от Personiya вы сможете точно настроить свой бизнес процесс
-          на путь к успеху! Отличное оборудование — залог качественных результатов!
+          С штукатурным оборудованием от Personiya вы сможете точно настроить
+          свой бизнес-процесс на путь к успеху! Отличное оборудование —
+          залог качественных результатов!
         </p>
-        <h2 className={styles['hero__hero-title']}>персония хл от 600 000 р</h2>      </div>
+        <h2 className={styles['hero__hero-title']}>
+          персония хл от 600 000 р
+        </h2>
+      </div>
       <video
         className={styles.hero__video}
         src={heroVideo}
         muted
         playsInline
         ref={videoRef}
+        // Удалили атрибут autoPlay
       ></video>
     </section>
   );
