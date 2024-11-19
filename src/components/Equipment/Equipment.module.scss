@@ -1,5 +1,28 @@
 @import '../../styles/variables';
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 20px;
+  background-color: #e0e0e0;
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
 .equipment {
   position: relative;
   height: 200vh;
@@ -18,9 +41,9 @@
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;   // Вертикальное центрирование контента
-    justify-content: flex-end; // Горизонтальное выравнивание по правому краю
-    pointer-events: none;  // Чтобы overlay не мешал прокрутке или кликам
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none;
     z-index: 1;
   }
 
@@ -30,32 +53,9 @@
     color: white;
     padding: 0;
     white-space: nowrap;
-    margin: 0;  // Убираем отступы, чтобы текст был по центру по вертикали
+    margin: 0;
     text-transform: uppercase;
     letter-spacing: -7px;
-    pointer-events: auto;  // Разрешаем взаимодействие с текстом, если нужно
-  }
-
-  .loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-
-  .progress-bar {
-    width: 80%;
-    height: 20px;
-    background-color: #e0e0e0;
-    margin-top: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .progress-bar__fill {
-    height: 100%;
-    background-color: #3b82f6;
-    transition: width 0.3s ease;
+    pointer-events: auto;
   }
 }
