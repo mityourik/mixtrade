@@ -9,7 +9,7 @@ const HeroSection: React.FC = () => {
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
-      videoRef.current.muted = true; // Убедимся, что видео без звука
+      videoRef.current.muted = true;
       const playPromise = videoRef.current.play();
 
       if (playPromise !== undefined) {
@@ -75,7 +75,6 @@ const HeroSection: React.FC = () => {
         muted
         playsInline
         ref={videoRef}
-        // Удалили атрибут autoPlay
       ></video>
     </section>
   );
