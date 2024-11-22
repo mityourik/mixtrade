@@ -9,6 +9,8 @@ body {
     background-color: $background-black;
     font-size: 15px;
     font-weight: 500;
+    max-width: 1920px;
+    min-width: 375px;
 }
 
 h1,

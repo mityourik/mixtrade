@@ -1,0 +1,135 @@
+@import '../../styles/variables.scss';
+
+.order-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $background-red;
+  height: 100vh;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+    grid-template-areas:
+      "title . image"
+      "subtitle . image"
+      "text specs image"
+      "text specs image"
+      ". price buy";
+    gap: 20px;
+    max-width: 80%;
+    max-height: 90%;
+    margin: 0 auto;
+    color: $white;
+  }
+
+  &__title {
+    grid-area: title;
+    font-size: 80px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    grid-area: subtitle;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &__text {
+    grid-area: text;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  &__specs {
+    grid-area: specs;
+
+    &-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &__warranty {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  &__image-container {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.5));
+  }
+
+  &__buy-button {
+    grid-area: buy;
+    background-color: transparent;
+    color: $white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    align-self: center;
+  }
+
+  &__price {
+    grid-area: price;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    &__grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto;
+      grid-template-areas:
+        "title"
+        "subtitle"
+        "image"
+        "text"
+        "specs"
+        "price"
+        "buy";
+    }
+
+    &__title {
+      font-size: 60px;
+    }
+
+    &__subtitle {
+      font-size: 18px;
+    }
+
+    &__text {
+      font-size: 14px;
+    }
+
+    &__price {
+      text-align: center;
+    }
+  }
+}

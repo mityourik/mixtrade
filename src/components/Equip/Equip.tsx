@@ -1,6 +1,7 @@
 import styles from './Equip.module.scss';
-import mixer from '../../vendor/images/mixcement1.png';
+import mixer from '../../vendor/images/BM-670.png';
 import bm670img from '../../vendor/images/buttons/button_bm670.png';
+import { Link } from 'react-router-dom';
 
 const Equip: React.FC = () => {
   return (
@@ -10,17 +11,17 @@ const Equip: React.FC = () => {
         <h3 className={styles['equip__subtitle']}>бетоносмеситель</h3>
         <p className={styles['equip__text']}>
           Поддержка и консультации: Наши специалисты всегда готовы помочь вам с любыми вопросами и проблемами,
-          связанными с эксплуатацией и обслуживанием штукатурных станций Personiya
+          связанными с эксплуатацией и обслуживанием штукатурных станций Personiya.
         </p>
         <button className={styles['equip__button_back']}></button>
         <div className={styles['equip__container-image']}>
           <img className={styles['equip__image']} src={mixer} alt="equip" />
         </div>
         <button className={styles['equip__button_forward']}></button>
-        <button className={styles['equip__about-button']}>
-          <img className={styles['equip__about-image']} src={bm670img} alt="mixer bm670 image" />
+        <Link to="/order-page" className={styles['equip__about-button']}>
+          <img className={styles['equip__about-image']} src={bm670img} alt="Подробнее о BM-670" />
           Подробнее
-        </button>
+        </Link>
       </div>
     </section>
   );

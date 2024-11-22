@@ -15,6 +15,7 @@ import GuaranteeCity from './components/GuaranteeCity/GuaranteeCity';
 import './App.css';
 import Equipment from './components/Equipment/Equipment';
 import HeroSection from './components/HeroSection/HeroSection';
+import OrderPage from './components/OrderPage/OrderPage';
 
 const App: React.FC = () => {
   return (
@@ -58,6 +59,7 @@ const App: React.FC = () => {
         } />
         
         <Route path="/guarantee-city" element={<GuaranteeCity />} />
+        <Route path="/order-page" element={<OrderPage />} />
       </Routes>
     </Router>
   );
