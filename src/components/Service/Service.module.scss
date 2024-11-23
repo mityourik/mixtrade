@@ -7,7 +7,7 @@
   justify-content: space-between;
   height: 100vh;
   background-color: $background-red;
-  padding: 15vh 20vw;
+  padding: 15vh 15vw;
   color: #fff;
 
   &__content {
@@ -23,6 +23,7 @@
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 1vh;
+    max-width: 800px;
   }
 
   &__text {

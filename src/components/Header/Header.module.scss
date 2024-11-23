@@ -68,17 +68,17 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 130px;
-  background-color: $background-black; /* Черный фон для хедера */
+  height: 80px;
+  background-color: $background-black;
   z-index: 3000;
 
   &__logo {
     display: flex;
-    width: 450px;
+    width: 250px;
     transition: opacity 0.3s ease;
 
     &:hover {
-      opacity: 0.8; /* Эффект при наведении */
+      opacity: 0.8;
     }
   }
 
@@ -89,12 +89,12 @@
 
 .header__burger {
   position: fixed;
-  top: 50px;
+  top: 35px;
   right: 9vw;
   z-index: 3000;
   display: flex;
-  width: 60px;
-  height: 20px;
+  width: 40px;
+  height: 15px;
   cursor: pointer;
   transition: 0.5s ease-in-out;
 
@@ -102,7 +102,7 @@
   &::after {
     content: '';
     position: absolute;
-    height: 7px;
+    height: 4px;
     width: 100%;
     background: $white;
     border-radius: 4px;
@@ -114,7 +114,7 @@
   }
 
   &::after {
-    top: 10px;
+    top: 8px;
   }
 
   &_active {
