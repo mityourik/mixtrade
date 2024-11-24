@@ -12,7 +12,7 @@ const Spares = () => {
           заказать запчасти и расходники
         </h1>
         <a href="#" className={styles['spares__link']}>
-          Сервисные центры
+          Оформить заказ
           <img src={arrowImg} alt="Стрелка" className={styles['spares__arrow']} />
         </a>
       </div>
