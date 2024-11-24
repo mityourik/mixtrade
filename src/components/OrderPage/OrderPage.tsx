@@ -41,7 +41,6 @@ const OrderPage: React.FC = () => {
           </div>
           <div className={styles['order-page__purchase']}>
             <span className={styles['order-page__price']}>600000 Р.</span>
-            {/* <button className={styles['order-page__buy-button']}>Купить</button> */}
             <ArrowButton direction='forward' onClick={() => {}} text='Купить'/>
           </div>
         </div>

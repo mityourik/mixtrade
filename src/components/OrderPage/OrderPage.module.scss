@@ -8,7 +8,7 @@
   color: $white;
   height: 100vh;
   box-sizing: border-box;
-  padding: 100px 20px 50px 20px;
+  padding: 130px 16px 40px 16px;
 
   &__container {
     display: grid;
@@ -17,8 +17,8 @@
     grid-template-areas:
       'header header'
       'image content';
-    gap: 20px;
-    max-width: 72%;
+    gap: 16px;
+    max-width: 60%;
     max-height: 100%;
     width: 100%;
     height: 100%;
@@ -41,8 +41,8 @@
   }
 
   &__image {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90%; // Уменьшен максимальный размер изображения
+    max-height: 90%;
     object-fit: contain;
   }
 
@@ -54,7 +54,7 @@
     align-items: flex-start;
     overflow-y: auto;
     max-height: 100%;
-    margin-left: 40px;
+    margin-left: 32px; // Уменьшен отступ слева
   }
 
   &__content {
@@ -70,7 +70,7 @@
   }
 
   &__price {
-    font-size: 1.8vw;
+    font-size: 1.6vw; // Уменьшен размер шрифта
     font-weight: 900;
     display: flex;
     margin: 5px 0 0 0;
@@ -80,40 +80,40 @@
     background-color: $white;
     color: $background-red;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px; // Уменьшены отступы
     cursor: pointer;
-    font-size: 1.2vw;
+    font-size: 1vw; // Уменьшен размер шрифта
     text-transform: uppercase;
     display: flex;
   }
 
   &__title {
-    font-size: 80px;
+    font-size: 64px; // Уменьшен размер шрифта
     font-weight: 900;
-    line-height: 80px;
+    line-height: 64px; // Уменьшена высота строки
     text-transform: uppercase;
     margin: 0;
   }
 
   &__subtitle {
-    font-size: 2vw;
+    font-size: 1.6vw; // Уменьшен размер шрифта
     font-weight: bold;
     margin: 0;
     text-transform: uppercase;
   }
 
   &__description {
-    font-size: 1.2vw;
+    font-size: 1vw; // Уменьшен размер шрифта
     line-height: 1;
     font-weight: 400;
-    letter-spacing: 0.7px;
+    letter-spacing: 0.6px; // Уменьшен межбуквенный интервал
   }
 
   &__specs {
-    margin: 50px 0 0 0;
+    margin: 40px 0 0 0; // Уменьшен верхний отступ
 
     &-title {
-      font-size: 1.3vw;
+      font-size: 1.1vw; // Уменьшен размер шрифта
       font-weight: 900;
     }
 
@@ -124,17 +124,17 @@
     }
 
     &-item {
-      font-size: 1.2vw;
+      font-size: 1vw; // Уменьшен размер шрифта
       line-height: 1;
       font-weight: 400;
-      letter-spacing: 0.7px;
+      letter-spacing: 0.6px; // Уменьшен межбуквенный интервал
     }
   }
 
   &__warranty {
-    font-size: 1.3vw;
+    font-size: 1.1vw; // Уменьшен размер шрифта
     font-weight: 900;
-    margin: 50px 0 0 0;
+    margin: 40px 0 0 0; // Уменьшен верхний отступ
   }
 
   @media (max-width: 768px) {
@@ -161,36 +161,36 @@
 
     &__price,
     &__buy-button {
-      font-size: 3vw;
+      font-size: 2.5vw; // Уменьшен размер шрифта
     }
 
     &__title {
-      font-size: 8vw;
+      font-size: 6.5vw; // Уменьшен размер шрифта
     }
 
     &__subtitle {
-      font-size: 4vw;
+      font-size: 3.5vw; // Уменьшен размер шрифта
     }
 
     &__description,
     &__specs &-title,
     &__specs &-item,
     &__warranty {
-      font-size: 3vw;
+      font-size: 2.5vw; // Уменьшен размер шрифта
     }
   }
 
   @media (max-height: 600px) {
     &__container {
-      gap: 10px;
+      gap: 8px; // Уменьшен gap
     }
 
     &__title {
-      font-size: 6vw;
+      font-size: 5vw; // Уменьшен размер шрифта
     }
 
     &__subtitle {
-      font-size: 3vw;
+      font-size: 2.5vw; // Уменьшен размер шрифта
     }
 
     &__description,
@@ -199,7 +199,7 @@
     &__warranty,
     &__price,
     &__buy-button {
-      font-size: 2vw;
+      font-size: 1.8vw; // Уменьшен размер шрифта
     }
   }
 }
