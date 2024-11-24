@@ -1,5 +1,5 @@
 import styles from './OrderPage.module.scss';
-import stationXl from '../../vendor/images/xl.png';
+import stationXl from '../../vendor/images/carousel/xl.png';
 import ArrowButton from '../ArrowButton/ArrowButton';
 
 const OrderPage: React.FC = () => {

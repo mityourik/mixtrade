@@ -1,45 +1,16 @@
-// import styles from './Equip.module.scss';
-// import BM670 from '../../vendor/images/carousel/mixcement.png';
-// import bm670img from '../../vendor/images/buttons/button_bm670.png';
-// import { Link } from 'react-router-dom';
-
-// const Equip: React.FC = () => {
-//   return (
-//     <section className={styles.equip}>
-//       <div className={styles['equip__grid']}>
-//         <h1 className={styles['equip__title']}>bm-670</h1>
-//         <h3 className={styles['equip__subtitle']}>бетоносмеситель</h3>
-//         <p className={styles['equip__text']}>
-//           Поддержка и консультации: Наши специалисты всегда готовы помочь вам с любыми вопросами и проблемами,
-//           связанными с эксплуатацией и обслуживанием штукатурных станций Personiya.
-//         </p>
-//         <button className={styles['equip__button_back']}></button>
-//         <div className={styles['equip__container-image']}>
-//           <img className={styles['equip__image']} src={BM670} alt="equip" />
-//         </div>
-//         <button className={styles['equip__button_forward']}></button>
-//         <Link to="/order-page" className={styles['equip__about-button']}>
-//           <img className={styles['equip__about-image']} src={bm670img} alt="Подробнее о BM-670" />
-//           Подробнее
-//         </Link>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Equip;
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Equip.module.scss';
 import { Link } from 'react-router-dom';
 
 // Импортируем изображения оборудования
 import BM670 from '../../vendor/images/carousel/mixcement.png';
-import XLStation from '../../vendor/images/xl.png';
+import XLStation from '../../vendor/images/carousel/xl.png';
+import VStation from '../../vendor/images/carousel/v-series.png';
 
 // Импортируем изображения для кнопки "Подробнее"
 import bm670img from '../../vendor/images/buttons/button_bm670.png';
 import xlImg from '../../vendor/images/buttons/button_xl.png';
+import vImg from '../../vendor/images/buttons/button_v-series.png';
 
 const equipmentItems = [
   {
@@ -84,7 +55,27 @@ const equipmentItems = [
       image: XLStation,
     },
   },
-  // Добавьте другие элементы оборудования по необходимости
+  {
+    title: 'V серия',
+    subtitle: 'Штукатурная станция',
+    text: 'PERSONIYA V-Seria - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей.',
+    image: VStation,
+    detailImage: vImg,
+    link: '/order-page',
+    orderData: {
+      title: 'XL',
+      subtitle: 'Штукатурная станция',
+      description: 'PERSONIYA XL - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей...',
+      specs: [
+        'Электропитание: 220/380 V',
+        'Дальность подачи: до 15 м',
+        // Добавьте другие характеристики
+      ],
+      warranty: '14 месяцев',
+      price: '600000 Р.',
+      image: XLStation,
+    },
+  },
 ];
 
 const Equip: React.FC = () => {
