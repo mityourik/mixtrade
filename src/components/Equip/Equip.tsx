@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom';
 import BM670 from '../../vendor/images/carousel/mixcement.png';
 import XLStation from '../../vendor/images/carousel/xl.png';
 import VStation from '../../vendor/images/carousel/v-series.png';
+import pumpMinStation from '../../vendor/images/carousel/pumpmin.png';
 
 // Импортируем изображения для кнопки "Подробнее"
 import bm670img from '../../vendor/images/buttons/button_bm670.png';
 import xlImg from '../../vendor/images/buttons/button_xl.png';
 import vImg from '../../vendor/images/buttons/button_v-series.png';
+import pumpMinImg from '../../vendor/images/buttons/button_rm-l.png';
 
 const equipmentItems = [
   {
@@ -27,7 +29,7 @@ const equipmentItems = [
       specs: [
         'Электропитание: 220V',
         'Мощность: 5 кВт',
-        // Добавьте другие характеристики
+        // другие характеристики
       ],
       warranty: '12 месяцев',
       price: '400000 Р.',
@@ -48,7 +50,7 @@ const equipmentItems = [
       specs: [
         'Электропитание: 220/380 V',
         'Дальность подачи: до 15 м',
-        // Добавьте другие характеристики
+        // другие характеристики
       ],
       warranty: '14 месяцев',
       price: '600000 Р.',
@@ -56,7 +58,7 @@ const equipmentItems = [
     },
   },
   {
-    title: 'V серия',
+    title: 'VS',
     subtitle: 'Штукатурная станция',
     text: 'PERSONIYA V-Seria - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей.',
     image: VStation,
@@ -69,11 +71,32 @@ const equipmentItems = [
       specs: [
         'Электропитание: 220/380 V',
         'Дальность подачи: до 15 м',
-        // Добавьте другие характеристики
+        // другие характеристики
       ],
       warranty: '14 месяцев',
       price: '600000 Р.',
-      image: XLStation,
+      image: VStation,
+    },
+  },
+  {
+    title: 'PumpMin',
+    subtitle: 'Штукатурная станция',
+    text: 'PERSONIYA V-Seria - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей.',
+    image: pumpMinStation,
+    detailImage: pumpMinImg,
+    link: '/order-page',
+    orderData: {
+      title: 'PumpMin',
+      subtitle: 'Штукатурная станция',
+      description: 'PERSONIYA XL - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей...',
+      specs: [
+        'Электропитание: 220/380 V',
+        'Дальность подачи: до 15 м',
+        // другие характеристики
+      ],
+      warranty: '14 месяцев',
+      price: '600000 Р.',
+      image: pumpMinStation,
     },
   },
 ];
