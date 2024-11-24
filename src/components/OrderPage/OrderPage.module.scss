@@ -8,7 +8,7 @@
   color: $white;
   height: 100vh;
   box-sizing: border-box;
-  padding: 150px 20px 20px 20px;
+  padding: 100px 20px 50px 20px;
 
   &__container {
     display: grid;
@@ -46,17 +46,51 @@
     object-fit: contain;
   }
 
-  &__content {
+  &__details {
     grid-area: content;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     overflow-y: auto;
     max-height: 100%;
+    margin-left: 40px;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__purchase {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  &__price {
+    font-size: 1.8vw;
+    font-weight: 900;
+    display: flex;
+    margin: 5px 0 0 0;
+  }
+
+  &__buy-button {
+    background-color: $white;
+    color: $background-red;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2vw;
+    text-transform: uppercase;
+    display: flex;
   }
 
   &__title {
-    font-size: 5vw;
-    font-weight: bold;
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 80px;
     text-transform: uppercase;
     margin: 0;
   }
@@ -70,58 +104,39 @@
 
   &__description {
     font-size: 1.2vw;
-    line-height: 1.5;
-    margin-bottom: 10px;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.7px;
   }
 
   &__specs {
-    margin-bottom: 10px;
+    margin: 50px 0 0 0;
 
     &-title {
-      font-size: 1.5vw;
-      font-weight: bold;
-      margin-bottom: 5px;
+      font-size: 1.3vw;
+      font-weight: 900;
     }
 
     &-list {
       list-style: none;
       padding: 0;
       margin: 0;
+    }
 
-      &-item {
-        margin-bottom: 5px;
-        font-size: 1vw;
-      }
+    &-item {
+      font-size: 1.2vw;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: 0.7px;
     }
   }
 
   &__warranty {
-    font-size: 1vw;
-    margin-bottom: 10px;
+    font-size: 1.3vw;
+    font-weight: 900;
+    margin: 50px 0 0 0;
   }
 
-  &__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__price {
-    font-size: 2vw;
-    font-weight: bold;
-  }
-
-  &__buy-button {
-    background-color: $white;
-    color: $background-red;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1.2vw;
-    text-transform: uppercase;
-  }
-
-  // Медиазапросы для адаптивности
   @media (max-width: 768px) {
     &__container {
       grid-template-columns: 1fr;
@@ -135,6 +150,20 @@
       text-align: center;
     }
 
+    &__details {
+      flex-direction: column;
+      margin-left: 0;
+    }
+
+    &__content {
+      margin-right: 0;
+    }
+
+    &__price,
+    &__buy-button {
+      font-size: 3vw;
+    }
+
     &__title {
       font-size: 8vw;
     }
@@ -145,10 +174,8 @@
 
     &__description,
     &__specs &-title,
-    &__specs &-list &-item,
-    &__warranty,
-    &__price,
-    &__buy-button {
+    &__specs &-item,
+    &__warranty {
       font-size: 3vw;
     }
   }
@@ -168,7 +195,7 @@
 
     &__description,
     &__specs &-title,
-    &__specs &-list &-item,
+    &__specs &-item,
     &__warranty,
     &__price,
     &__buy-button {
