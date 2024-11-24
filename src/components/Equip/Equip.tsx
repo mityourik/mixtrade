@@ -65,37 +65,37 @@ const equipmentItems = [
     detailImage: vImg,
     link: '/order-page',
     orderData: {
-      title: 'XL',
+      title: 'VS', // Исправлено с 'XL' на 'VS'
       subtitle: 'Штукатурная станция',
-      description: 'PERSONIYA XL - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей...',
+      description: 'PERSONIYA V-Seria - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей...',
       specs: [
         'Электропитание: 220/380 V',
-        'Дальность подачи: до 15 м',
-        // другие характеристики
+        'Дальность подачи: до 20 м',
+        // другие характеристики специфичные для VS
       ],
       warranty: '14 месяцев',
-      price: '600000 Р.',
+      price: '650000 Р.',
       image: VStation,
     },
   },
   {
     title: 'PumpMin',
     subtitle: 'Штукатурная станция',
-    text: 'PERSONIYA V-Seria - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей.',
+    text: 'PERSONIYA PumpMin - компактная штукатурная станция для небольших объектов.',
     image: pumpMinStation,
     detailImage: pumpMinImg,
     link: '/order-page',
     orderData: {
       title: 'PumpMin',
       subtitle: 'Штукатурная станция',
-      description: 'PERSONIYA XL - штукатурная станция, предназначенная для качественного и быстрого нанесения сухих строительных смесей...',
+      description: 'PERSONIYA PumpMin - компактная штукатурная станция для небольших объектов...',
       specs: [
-        'Электропитание: 220/380 V',
-        'Дальность подачи: до 15 м',
-        // другие характеристики
+        'Электропитание: 220V',
+        'Дальность подачи: до 10 м',
+        // другие характеристики специфичные для PumpMin
       ],
-      warranty: '14 месяцев',
-      price: '600000 Р.',
+      warranty: '12 месяцев',
+      price: '550000 Р.',
       image: pumpMinStation,
     },
   },
@@ -138,9 +138,7 @@ const Equip: React.FC = () => {
           onClick={handleNext}
         ></button>
         <Link
-          to={{
-            pathname: currentItem.link,
-          }}
+          to={currentItem.link}
           state={currentItem.orderData}
           className={styles['equip__about-button']}
         >

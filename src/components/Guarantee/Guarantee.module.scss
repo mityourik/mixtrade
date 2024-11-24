@@ -21,7 +21,7 @@
   }
 
   &__title {
-    font-size: 18rem;
+    font-size: 15rem;
     font-weight: 600;
     margin: 0;
   }
@@ -67,7 +67,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%;
+    width: 50%;
     height: 100%;
     overflow: hidden;
     z-index: 1;
@@ -85,7 +85,7 @@
   &__text {
     position: absolute;
     top: 0;
-    right: 15vw;
+    right: 8vw;
     height: 100%;
     color: $white;
     padding: 15vh 1vw 10vh 2vw;
