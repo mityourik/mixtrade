@@ -1,113 +1,3 @@
-// @import '../../styles/variables.scss';
-
-// .feedback {
-//   background-color: $background-red;
-//   display: flex;
-//   align-items: center;
-//   height: 100vh;
-
-//   &__container {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: flex-start;
-//     max-width: 1200px;
-//     margin: 0 auto;
-//     padding: 20px;
-//     color: $white;
-//     width: 100%;
-//   }
-
-//   &__form {
-//     width: 50%;
-//   }
-
-//   &__title {
-//     font-size: 50px;
-//     font-weight: 600;
-//     margin-bottom: 4%;
-//     letter-spacing: 3px;
-//     text-transform: uppercase;
-//   }
-
-//   &__description {
-//     font-size: 23px;
-//     margin-bottom: 4%;
-//     font-weight: 400;
-//   }
-
-//   &__input,
-//   &__textarea {
-//   display: block;
-//   width: 100%;
-//   padding: 17px;
-//   margin-bottom: 5%;
-//   border-radius: 10px;
-//   border: none;
-//   font-size: 19px;
-//   font-weight: 500;
-//   outline: none;
-
-//   &::placeholder {
-//     color: $background-red;
-//     opacity: 1;
-//     font-weight: 600;
-//     font-size: 19px;
-//   }
-// }
-
-//   &__textarea {
-//     height: 200px;
-//     resize: none;
-//   }
-
-//   &__submit {
-//     background-color: $white;
-//     color: $background-red;
-//     padding: 10px 20px;
-//     border-radius: 20px;
-//     border: none;
-//     cursor: pointer;
-//     font-weight: bold;
-//   }
-
-//   &__info {
-//     width: 40%;
-//     text-align: left;
-//     margin-top: 6%;
-//   }
-
-//   &__text {
-//     font-size: 23px;
-//     font-weight: 400;
-//   }
-
-//   &__icons {
-//     display: flex;
-//     justify-content: center;
-//     gap: 40px;
-//     margin-top: 10%;
-//   }
-
-//   &__icon {
-//     width: 120px;
-//     height: 120px;
-//     background-size: contain;
-//     background-repeat: no-repeat;
-
-//     &__telegram {
-//       background-image: url('../../vendor/images/buttons/button_Tg.png');
-//     }
-
-//     &__whatsapp {
-//       background-image: url('../../vendor/images/buttons/button_Whats.png');
-//     }
-
-//     &__phone {
-//       background-image: url('../../vendor/images/buttons/button_mobile.png');
-//     }
-//   }
-// }
-
 @import '../../styles/variables.scss';
 
 .feedback {
@@ -168,13 +58,13 @@
   &__textarea {
     height: 200px;
     resize: none;
-    padding-right: 120px; // Отступ для кнопки внутри поля
+    padding-right: 120px;
   }
 
   &__textareaWrapper {
     position: relative;
     width: 100%;
-    margin-bottom: 5%; // Добавлен отступ снизу, как у других полей
+    margin-bottom: 5%;
   }
 
   &__submit {
@@ -202,6 +92,25 @@
     font-weight: 400;
   }
 
+  &__contacts {
+    margin-top: 10%;
+  }
+
+  &__phone {
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 10px;
+
+    a {
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   &__icons {
     display: flex;
     justify-content: center;
@@ -215,15 +124,15 @@
     background-size: contain;
     background-repeat: no-repeat;
 
-    &--telegram {
+    &__telegram {
       background-image: url('../../vendor/images/buttons/button_Tg.png');
     }
 
-    &--whatsapp {
-      background-image: url('../../vendor/images/buttons/button_Whats.png');
+    &__vk {
+      background-image: url('../../vendor/images/buttons/button_Vk.png');
     }
 
-    &--phone {
+    &__phone {
       background-image: url('../../vendor/images/buttons/button_mobile.png');
     }
   }
