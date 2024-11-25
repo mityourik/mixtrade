@@ -1,14 +1,34 @@
 import styles from './OrderPage.module.scss';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ArrowButton from '../ArrowButton/ArrowButton';
 
-const OrderPage: React.FC = () => {
+interface FeedbackProps {
+  title?: string;
+  text?: string;
+  placeholder?: string;
+}
+
+interface OrderPageProps {
+  setFeedbackData: (data: FeedbackProps) => void;
+}
+
+const OrderPage: React.FC<OrderPageProps> = ({ setFeedbackData }) => {
   const location = useLocation();
   const data = location.state;
+  const navigate = useNavigate();
 
   if (!data) {
     return <div>Данные не найдены</div>;
   }
+
+  const handleBuyClick = () => {
+    setFeedbackData({
+      title: data.title,
+      text: 'Заполните форму и с вами свяжется менеджер по продажам или вы можете перейти в удобный для вас мессенджер.',
+      placeholder: 'Укажите удобный вид расчета.',
+    });
+    navigate('/feedback');
+  };
 
   return (
     <section className={styles['order-page']}>
@@ -41,7 +61,7 @@ const OrderPage: React.FC = () => {
           </div>
           <div className={styles['order-page__purchase']}>
             <span className={styles['order-page__price']}>{data.price}</span>
-            <ArrowButton direction='forward' onClick={() => {}} text='Купить' />
+            <ArrowButton direction='forward' onClick={handleBuyClick} text='Купить' />
           </div>
         </div>
       </div>

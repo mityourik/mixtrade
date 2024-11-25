@@ -2,13 +2,13 @@ import { useState } from 'react';
 import styles from './Equip.module.scss';
 import { Link } from 'react-router-dom';
 
-// Импортируем изображения оборудования
+// изображения оборудования
 import BM670 from '../../vendor/images/carousel/mixcement.png';
 import XLStation from '../../vendor/images/carousel/xl.png';
 import VStation from '../../vendor/images/carousel/v-series.png';
 import pumpMinStation from '../../vendor/images/carousel/pumpmin.png';
 
-// Импортируем изображения для кнопки "Подробнее"
+// изображения для кнопки "Подробнее"
 import bm670img from '../../vendor/images/buttons/button_bm670.png';
 import xlImg from '../../vendor/images/buttons/button_xl.png';
 import vImg from '../../vendor/images/buttons/button_v-series.png';
@@ -86,20 +86,22 @@ const equipmentItems = [
     },
   },
   {
-    title: 'PumpMin',
-    subtitle: 'Штукатурная станция',
-    text: 'PERSONIYA PumpMin - компактная штукатурная станция для небольших объектов.',
+    title: 'СППР-11',
+    subtitle: 'Станция приготовления и подачи бетона',
+    text: 'PERSONIYA СППР-11 - Растворонасос с вертикальным смесителем используется для замешивания и подачи строительных смесей. Предусмотрена возможность использования жидких компонентов. Вертикальное смешивание исключает вероятность расслоения смешиваемого состава на фракции, даже при различной массе и размере компонентов.',
     image: pumpMinStation,
     detailImage: pumpMinImg,
     link: '/order-page',
     orderData: {
-      title: 'PumpMin',
-      subtitle: 'Штукатурная станция',
-      description: 'PERSONIYA PumpMin - компактная штукатурная станция для небольших объектов...',
+      title: 'СППР-11',
+      subtitle: 'Станция приготовления и подачи бетона',
+      description: 'PERSONIYA СППР-11 - Растворонасос с вертикальным смесителем используется для замешивания и подачи строительных смесей. Предусмотрена возможность использования жидких компонентов. Вертикальное смешивание исключает вероятность расслоения смешиваемого состава на фракции, даже при различной массе и размере компонентов.',
       specs: [
-        'Электропитание: 220V',
-        'Дальность подачи: до 10 м',
-        // другие характеристики для PumpMin
+        'Электропитание: 220 В',
+        'Вес: 174 кг',
+        'Объем бункера растворонасоса: 90 л',
+        'Объем бункера смесителя: 80 л',
+        'Производительность растворонасоса: 10–40 л/мин',
       ],
       warranty: '12 месяцев',
       price: '550000 Р.',
