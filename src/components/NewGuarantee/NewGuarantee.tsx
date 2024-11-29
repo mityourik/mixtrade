@@ -1,10 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import styles from './NewGuarantee.module.scss';
 import guaranteeImg from '../../vendor/images/guarantee.png';
 import ArrowButton from '../ArrowButton/ArrowButton';
 
 const NewGuarantee = () => {
+  const [isTermsVisible, setIsTermsVisible] = useState(false);
   const backgroundRef = useRef(null);
   const contentRef = useRef(null);
   const termsRef = useRef(null);
@@ -12,28 +13,54 @@ const NewGuarantee = () => {
   const handleArrowClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-
-    gsap.to(backgroundRef.current, {
-      x: '50%',
-      duration: 1,
-      ease: 'power2.out',
-    });
-
-    gsap.to(contentRef.current, {
-      opacity: 1,
-      x: 0,
-      duration: 1,
-      ease: 'power2.out',
-      delay: 0.2,
-    });
-
-    gsap.to(termsRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: 'power2.out',
-      delay: 1,
-    });
+  
+    if (!isTermsVisible) {
+      gsap.to(backgroundRef.current, {
+        x: '50%',
+        duration: 1,
+        ease: 'power2.out',
+      });
+  
+      gsap.to(contentRef.current, {
+        opacity: 1,
+        x: 0,
+        duration: 0.2,
+        ease: 'power2.out',
+        delay: 0.2,
+      });
+  
+      gsap.to(termsRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        ease: 'power2.out',
+        delay: 1,
+        onComplete: () => setIsTermsVisible(true),
+      });
+    } else {
+      gsap.to(backgroundRef.current, {
+        x: '0%',
+        duration: 0.5,
+        ease: 'power2.out',
+      });
+  
+      gsap.to(contentRef.current, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: 'power2.out',
+        delay: 0.2,
+      });
+  
+      gsap.to(termsRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 0.2,
+        ease: 'power2.out',
+        delay: 0,
+        onComplete: () => setIsTermsVisible(false),
+      });
+    }
   };
 
   return (
@@ -61,8 +88,8 @@ const NewGuarantee = () => {
           <div className={styles.guarantee__footer}>
             <ArrowButton
               onClick={handleArrowClick}
-              direction="forward"
-              text="Гарантийные условия"
+              direction={isTermsVisible ? 'backward' : 'forward'}
+              text={isTermsVisible ? 'Назад' : 'Гарантийные условия'}
             />
           </div>
         </div>
