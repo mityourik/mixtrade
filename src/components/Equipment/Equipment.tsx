@@ -57,11 +57,72 @@ const Equipment: React.FC = () => {
     loadImages();
   }, []);
 
+  // useEffect(() => {
+  //   if (isLoaded && sectionRef.current && textRef.current) {
+  //     const sectionElement = sectionRef.current;
+  //     const textElement = textRef.current;
+
+  //     gsap.to({}, {
+  //       scrollTrigger: {
+  //         trigger: sectionElement,
+  //         start: "top top",
+  //         end: "bottom bottom",
+  //         scrub: true,
+  //         onUpdate: (self) => {
+  //           const progress = self.progress;
+  //           const frameIndex = Math.floor(progress * (loadedImages.length - 1));
+  //           if (imageRef.current && loadedImages.length > 0) {
+  //             imageRef.current.src = loadedImages[frameIndex];
+  //           }
+  //         },
+  //       },
+  //     });
+
+  //     gsap.fromTo(
+  //       textElement,
+  //       { xPercent: 100 },
+  //       {
+  //         xPercent: -120,
+  //         ease: "none",
+  //         scrollTrigger: {
+  //           trigger: sectionElement,
+  //           start: "top top",
+  //           end: "bottom bottom",
+  //           scrub: true,
+  //         },
+  //       }
+  //     );
+  //   }
+  // }, [isLoaded, loadedImages]);
+
   useEffect(() => {
     if (isLoaded && sectionRef.current && textRef.current) {
       const sectionElement = sectionRef.current;
       const textElement = textRef.current;
-
+  
+      // Основная анимация текста
+      gsap.fromTo(
+        textElement,
+        { xPercent: 100 },
+        {
+          xPercent: -190,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionElement,
+            start: "top top",
+            end: "bottom center",
+            scrub: true,
+            onLeave: () => {
+              textElement.style.display = "none";
+            },
+            onEnterBack: () => {
+              textElement.style.display = "block";
+            },
+          },
+        }
+      );
+  
+      // Фоновые изображения
       gsap.to({}, {
         scrollTrigger: {
           trigger: sectionElement,
@@ -77,21 +138,6 @@ const Equipment: React.FC = () => {
           },
         },
       });
-
-      gsap.fromTo(
-        textElement,
-        { xPercent: 100 },
-        {
-          xPercent: -120,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionElement,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        }
-      );
     }
   }, [isLoaded, loadedImages]);
 

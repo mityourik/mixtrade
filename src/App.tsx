@@ -18,6 +18,7 @@ import HeroSection from './components/HeroSection/HeroSection';
 import OrderPage from './components/OrderPage/OrderPage';
 import { useState } from 'react';
 import { FeedbackProps } from './components/Feedback/Feedback';
+import NewGuarantee from './components/NewGuarantee/NewGuarantee';
 
 const App: React.FC = () => {
   const [feedbackData, setFeedbackData] = useState<FeedbackProps | null>(null);
@@ -39,8 +40,11 @@ const App: React.FC = () => {
               <div className="scroll-section">
                 <Equip />
               </div>
-              <div className="scroll-section">
+              {/* <div className="scroll-section">
                 <Guarantee />
+              </div> */}
+              <div className="scroll-section">
+                <NewGuarantee/>
               </div>
               <div className="scroll-section">
                 <Support />
@@ -67,6 +71,8 @@ const App: React.FC = () => {
         <Route path="/guarantee-city" element={<GuaranteeCity />} />
         <Route path="/order-page" element={<OrderPage setFeedbackData={setFeedbackData} />} />
         <Route path="/feedback" element={<Feedback {...feedbackData} />} />
+        <Route path="/guarantee" element={<NewGuarantee />} />
+
       </Routes>
     </Router>
   );

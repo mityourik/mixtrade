@@ -5,7 +5,7 @@ import styles from './ArrowButton.module.scss';
 
 interface ArrowButtonProps {
   direction: 'forward' | 'backward';
-  onClick: (event: React.MouseEvent<HTMLAnchorElement | HTMLImageElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement | HTMLImageElement>) => void;
   text?: string;
 }
 
