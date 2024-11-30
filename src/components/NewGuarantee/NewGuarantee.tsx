@@ -34,7 +34,7 @@ const NewGuarantee = () => {
         y: 0,
         duration: 0.3,
         ease: 'power2.out',
-        delay: 1,
+        delay: 0.3,
         onComplete: () => setIsTermsVisible(true),
       });
     } else {

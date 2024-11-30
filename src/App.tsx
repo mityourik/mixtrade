@@ -9,7 +9,7 @@ import Spares from './components/Spares/Spares';
 import Community from './components/Community/Community';
 import Feedback from './components/Feedback/Feedback';
 import Footer from './components/Footer/Footer';
-import Service from './components/Service/Sevice';
+import Service from './components/Service/Service';
 import GuaranteeCity from './components/GuaranteeCity/GuaranteeCity';
 
 import './App.css';

@@ -9,9 +9,9 @@
 
   &__phone-image {
     position: absolute;
-    top: -300px;
+    top: -360px;
     right: -400px;
-    width: 140%;
+    width: 120%;
     height: 140%;
     background-image: url('../../vendor/images/support.png');
     background-size: contain;
@@ -22,7 +22,7 @@
   &__content {
     position: absolute;
     top: 40%;
-    left: 20vw;
+    left: 14.3vw;
     transform: translateY(-50%);
     max-width: 50%;
     color: #fff;

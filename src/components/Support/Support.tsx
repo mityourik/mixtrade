@@ -16,7 +16,6 @@ const Support: React.FC = () => {
     const content = contentRef.current;
 
     if (section && phoneImage && content) {
-      // Анимация для изображения телефона
       gsap.fromTo(
         phoneImage,
         { xPercent: 150 },
@@ -29,7 +28,6 @@ const Support: React.FC = () => {
             start: 'top bottom',
             end: 'bottom top',
             scrub: 5,
-            // markers: true,
           },
         }
       );
@@ -47,7 +45,6 @@ const Support: React.FC = () => {
             scroller: '.scroll-container',
             start: 'top 80%',
             toggleActions: 'play none none none',
-            // markers: true,
           },
         }
       );
