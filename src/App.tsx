@@ -16,12 +16,19 @@ import './App.css';
 import Equipment from './components/Equipment/Equipment';
 import HeroSection from './components/HeroSection/HeroSection';
 import OrderPage from './components/OrderPage/OrderPage';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FeedbackProps } from './components/Feedback/Feedback';
 import NewGuarantee from './components/NewGuarantee/NewGuarantee';
+import { LoadingContext } from './contexts/LoadingContext';
+import Preloader from './components/Preloader/Preloader';
 
 const App: React.FC = () => {
   const [feedbackData, setFeedbackData] = useState<FeedbackProps | null>(null);
+  const { isLoading } = useContext(LoadingContext);
+
+  if (isLoading) {
+    return <Preloader />;
+  }
 
   return (
     <Router>
