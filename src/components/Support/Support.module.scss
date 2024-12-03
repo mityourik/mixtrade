@@ -9,29 +9,28 @@
 
   &__phone-image {
     position: absolute;
-    top: -360px;
-    right: -400px;
+    top: 0;
+    left: 0;
     width: 120%;
-    height: 140%;
+    height: 120%;
     background-image: url('../../vendor/images/support.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: center;
   }
 
   &__content {
-    position: absolute;
-    top: 40%;
-    left: 14.3vw;
-    transform: translateY(-50%);
-    max-width: 50%;
+    position: relative;
+    width: min-content;
     color: #fff;
     box-sizing: border-box;
-    opacity: 0; // Начальная непрозрачность 0
+    opacity: 0;
     z-index: 1;
     display: flex;
     flex-direction: row;
-    height: 35vh;
+    justify-content: center;
+    padding-left: 14.3vw;
+    top: 17vh;
   }
 
   &__container {
@@ -53,7 +52,7 @@
   }
 
   &__icons {
-    height: 100%;
+    margin-top: 20px;
     display: flex;
     gap: 20px;
     align-items: flex-end;
@@ -64,7 +63,6 @@
     height: 150px;
     background-size: contain;
     background-repeat: no-repeat;
-    display: flex;
 
     &__phone {
       background-image: url('../../vendor/images/buttons/button_mobile.svg');
@@ -72,6 +70,67 @@
 
     &__telegram {
       background-image: url('../../vendor/images/buttons/button_Tg.svg');
+    }
+  }
+}
+
+@media (max-width: 1499px) {
+  .support {
+    &__content {
+      max-width: 80%;
+      padding-left: 10vw;
+    }
+
+    &__container {
+      max-width: 500px;
+    }
+
+    &__title {
+      font-size: 60px;
+    }
+
+    &__description {
+      font-size: 16px;
+      max-width: 100%;
+    }
+
+    &__icons {
+      gap: 15px;
+    }
+
+    &__icon {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+/* Медиа-запрос для экранов с шириной до 375px */
+@media (max-width: 375px) {
+  .support {
+    &__content {
+      max-width: 90%;
+      padding-left: 5vw;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__title {
+      font-size: 40px;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+
+    &__icons {
+      gap: 10px;
+      justify-content: center;
+    }
+
+    &__icon {
+      width: 80px;
+      height: 80px;
     }
   }
 }

@@ -52,9 +52,7 @@ const Support: React.FC = () => {
   }, []);
 
   return (
-    // <section className={`${styles.support} scroll-section`} ref={sectionRef}>
     <section className={styles.support} ref={sectionRef}>
-
       <div className={styles['support__phone-image']} ref={phoneImageRef}></div>
       <div className={styles['support__content']} ref={contentRef}>
         <div className={styles['support__container']}>
