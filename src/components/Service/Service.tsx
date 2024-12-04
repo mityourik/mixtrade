@@ -1,26 +1,28 @@
 import { Link } from 'react-router-dom';
 import styles from './Service.module.scss';
 import serviceImg from '../../vendor/images/servis.png';
-import arrowImg from '../../vendor/images/buttons/button_back.png';
+import arrowImg from '../../vendor/images/button_forward.png';
 
 const Service: React.FC = () => {
   return (
     <section className={styles.service}>
       <div className={styles['service__content']}>
         <h1 className={styles['service__title']}>сервисное обслуживание</h1>
-        <p className={styles['service__text']}>
-            Профессиональный подход: Наши сервисные центры обслуживаются опытными специалистами, 
+        <ul className={styles['service__list']}>
+          <li className={styles['service__item']}>
+            Профессиональный подход: Наши сервисные центры обслуживаются опытными специалистами,
             обладающими глубокими знаниями и навыками в области ремонта и технического обслуживания штукатурных станций.
-        </p>
-        <p className={styles['service__text']}>
+          </li>
+          <li className={styles['service__item']}>
             Качество и надежность: Мы гарантируем использование только оригинальных запчастей и материалов при ремонте вашего оборудования, чтобы обеспечить его долгий срок службы и безупречную работу.
-        </p>
-        <p className={styles['service__text']}>
+          </li>
+          <li className={styles['service__item']}>
             Быстрота и эффективность: Мы ценим ваше время, поэтому наши сервисные центры работают оперативно и эффективно, чтобы ваше оборудование было отремонтировано в кратчайшие сроки.
-        </p>
-        <p className={styles['service__text']}>
+          </li>
+          <li className={styles['service__item']}>
             Поддержка и консультации: Наши специалисты всегда готовы помочь вам с любыми вопросами и проблемами, связанными с эксплуатацией и обслуживанием штукатурных станций PerSoniya.
-        </p>
+          </li>
+        </ul>
         <Link to="/guarantee-city" className={styles['service__link']}>
           Сервисные центры
           <img src={arrowImg} alt="Стрелка" className={styles['service__arrow']} />
