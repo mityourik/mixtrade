@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.guarantee-city {
+.service-city {
   position: relative;
   z-index: 0;
   display: flex;
@@ -14,7 +14,6 @@
     max-width: 48%;
     display: flex;
     flex-direction: column;
-    padding-left: 3vw;
   }
 
   &__city {
@@ -39,6 +38,7 @@
     margin-top: auto;
     display: flex;
     justify-content: center;
+    margin-right: 80px;
   }
 
   &__link {

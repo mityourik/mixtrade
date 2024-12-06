@@ -10,7 +10,6 @@ import Community from './components/Community/Community';
 import Feedback from './components/Feedback/Feedback';
 import Footer from './components/Footer/Footer';
 import Service from './components/Service/Service';
-import GuaranteeCity from './components/GuaranteeCity/GuaranteeCity';
 
 import './App.css';
 import Equipment from './components/Equipment/Equipment';
@@ -21,6 +20,7 @@ import { FeedbackProps } from './components/Feedback/Feedback';
 import NewGuarantee from './components/NewGuarantee/NewGuarantee';
 import { LoadingContext } from './contexts/LoadingContext';
 import Preloader from './components/Preloader/Preloader';
+import ServiceCity from './components/ServiceCity/ServiceCity';
 
 const App: React.FC = () => {
   const [feedbackData, setFeedbackData] = useState<FeedbackProps | null>(null);
@@ -75,7 +75,7 @@ const App: React.FC = () => {
             </div>
           }
         />
-        <Route path="/guarantee-city" element={<GuaranteeCity />} />
+        <Route path="/guarantee-city" element={<ServiceCity />} />
         <Route path="/order-page" element={<OrderPage setFeedbackData={setFeedbackData} />} />
         <Route path="/feedback" element={<Feedback {...feedbackData} />} />
         <Route path="/guarantee" element={<NewGuarantee />} />
