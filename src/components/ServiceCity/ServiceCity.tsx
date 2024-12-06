@@ -10,7 +10,7 @@ const ServiceCity: React.FC = () => {
 
   const handleArrowClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLImageElement>) => {
     e.preventDefault();
-    navigate(-1);
+    navigate('/mixtrade#service');
   };
 
   return (

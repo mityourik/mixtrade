@@ -23,7 +23,7 @@ const Service: React.FC = () => {
             Поддержка и консультации: Наши специалисты всегда готовы помочь вам с любыми вопросами и проблемами, связанными с эксплуатацией и обслуживанием штукатурных станций PerSoniya.
           </li>
         </ul>
-        <Link to="/guarantee-city" className={styles['service__link']}>
+        <Link to="/service-city" className={styles['service__link']}>
           Сервисные центры
           <img src={arrowImg} alt="Стрелка" className={styles['service__arrow']} />
         </Link>
