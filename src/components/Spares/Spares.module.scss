@@ -9,7 +9,7 @@
     background-color: $background-black;
     color: $white;
     overflow: hidden;
-    z-index: -1;
+    z-index: 2;
     padding: 0 0 0 15vw;
 
     &__content {
@@ -40,6 +40,7 @@
         text-decoration: none;
         justify-content: flex-end;
         font-weight: 600;
+        cursor: pointer;
     }
 
     &__arrow {

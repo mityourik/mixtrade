@@ -18,6 +18,7 @@ import Shipping from '../Shipping/Shipping';
 import Spares from '../Spares/Spares';
 import Support from '../Support/Support';
 import { LoadingContext } from '../../contexts/LoadingContext';
+import FeedbackSpares from '../FeedbackSpares/FeedbackSpares';
 
 const AppContent: React.FC = () => {
   const [feedbackData, setFeedbackData] = useState<FeedbackProps | null>(null);
@@ -28,7 +29,6 @@ const AppContent: React.FC = () => {
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
-        // Добавляем задержку, чтобы убедиться, что элемент уже отрисован
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
@@ -85,6 +85,7 @@ const AppContent: React.FC = () => {
         <Route path="/service-city" element={<ServiceCity />} />
         <Route path="/order-page" element={<OrderPage setFeedbackData={setFeedbackData} />} />
         <Route path="/feedback" element={<Feedback {...feedbackData} />} />
+        <Route path="/feedback-spares" element={<FeedbackSpares />} />
         <Route path="/guarantee" element={<NewGuarantee />} />
       </Routes>
     </>

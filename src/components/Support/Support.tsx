@@ -63,8 +63,16 @@ const Support: React.FC = () => {
           </p>
         </div>
         <div className={styles['support__icons']}>
-          <div className={`${styles.support__icon} ${styles['support__icon__phone']}`}></div>
-          <div className={`${styles.support__icon} ${styles['support__icon__telegram']}`}></div>
+          <a
+            href="tel:+79620286161"
+            className={`${styles.support__icon} ${styles['support__icon__phone']}`}
+          ></a>
+          <a
+            href="https://t.me/+l601BTBDSgNmODhi"
+            className={`${styles.support__icon} ${styles['support__icon__telegram']}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a>
         </div>
       </div>
     </section>
