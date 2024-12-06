@@ -6,6 +6,11 @@
   display: flex;
   justify-content: flex-start;
   background-color: $background-red;
+  background-image: url('../../vendor/images/background-mixstation.svg');
+  background-repeat: no-repeat;
+  background-position: 110% center;
+  background-size: 45% auto;
+
   padding: 15vh 11vw 9vh 11vw;
   height: 100vh;
   color: $white;
@@ -73,6 +78,26 @@
         left: 0;
         top: 0;
       }
+    }
+  }
+}
+
+@media (max-width: 1614px) {
+  .service-city {
+    &__content {
+      max-width: 78%;
+    }
+
+    &__city-text {
+      font-size: 1.2rem;
+    }
+
+    &__list-item {
+      font-size: 1.2rem;
+    }
+
+    &__arrow {
+      width: 4rem;
     }
   }
 }
