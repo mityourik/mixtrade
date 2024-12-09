@@ -25,7 +25,7 @@
     top: 25%;
     left: 15vw;
     max-width: 40%;
-    color: #fff;
+    color: $white;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
   &__title {
     font-size: 50px;
     letter-spacing: 3px;
-    font-weight: bold;
+    font-weight: 900;
     text-transform: uppercase;
   }
 
@@ -67,6 +67,48 @@
 
     &__vk {
       background-image: url('../../vendor/images/buttons/button_vk.png');
+    }
+  }
+}
+
+@media screen and (max-width: 1610px) {
+  .community{
+    &__content {
+      max-width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .community{
+    &__content {
+      max-width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .community{
+    &__content {
+      max-width: 60%;
+    }
+
+    &__title {
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+
+    &__description {
+      font-size: 12px;
+    }
+
+    &__container {
+      margin-bottom: 20px;
+    }
+
+    &__icon {
+      width: 70px;
+      height: 70px;
     }
   }
 }
