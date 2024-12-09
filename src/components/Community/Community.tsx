@@ -1,11 +1,12 @@
 import styles from './Community.module.scss';
+import imgBag from '../../vendor/images/bag.png';
 
 const Community: React.FC = () => {
   return (
     // <section className={`${styles.community} scroll-section`}>
 
     <section className={styles.community}>
-      <div className={styles['community__image']}></div>
+      <div className={styles['community__image']} style={{ backgroundImage: `url(${imgBag})` }}></div>
       <div className={styles['community__content']}>
         <div className={styles['community__container']}>
           <h1 className={styles['community__title']}>Вступайте в профессиональное сообщество</h1>
