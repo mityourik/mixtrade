@@ -1,39 +1,51 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
-interface LoadingContextProps {
-  addLoadingTask: () => void;
-  finishLoadingTask: () => void;
+const frames: string[] = [];
+for (let i = 1000; i <= 1159; i++) {
+  frames.push(new URL(`../vendor/images/frames/Composition_1_${i}.jpg`, import.meta.url).href);
+}
+
+interface LoadingContextValue {
   isLoading: boolean;
+  progress: number;
 }
 
-interface LoadingProviderProps {
-  children: ReactNode;
-}
-
-export const LoadingContext = createContext<LoadingContextProps>({
-  addLoadingTask: () => {},
-  finishLoadingTask: () => {},
-  isLoading: false,
+export const LoadingContext = createContext<LoadingContextValue>({
+  isLoading: true,
+  progress: 0,
 });
 
-export const LoadingProvider: React.FC<LoadingProviderProps> = ({ children }) => {
-  const [loadingCount, setLoadingCount] = useState(0);
+export const LoadingProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
 
-  const addLoadingTask = () => {
-    setLoadingCount((prev) => prev + 1);
-  };
+  useEffect(() => {
+    let loadedCount = 0;
+    const totalResources = frames.length;
 
-  const finishLoadingTask = () => {
-    setLoadingCount((prev) => Math.max(prev - 1, 0));
-  };
-
-  const isLoading = loadingCount > 0;
+    frames.forEach(src => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedCount++;
+        setProgress(Math.floor((loadedCount / totalResources) * 100));
+        if (loadedCount === totalResources) {
+          setIsLoading(false);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        setProgress(Math.floor((loadedCount / totalResources) * 100));
+        if (loadedCount === totalResources) {
+          setIsLoading(false);
+        }
+      };
+    });
+  }, []);
 
   return (
-    <LoadingContext.Provider value={{ addLoadingTask, finishLoadingTask, isLoading }}>
+    <LoadingContext.Provider value={{ isLoading, progress }}>
       {children}
     </LoadingContext.Provider>
   );
 };
-
-export default LoadingProvider;
