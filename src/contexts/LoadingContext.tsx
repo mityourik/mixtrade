@@ -1,9 +1,37 @@
 import React, { createContext, useState, useEffect } from 'react';
 
+// Импортируем кадры так, как было у вас:
 const frames: string[] = [];
 for (let i = 1000; i <= 1159; i++) {
   frames.push(new URL(`../vendor/images/frames/Composition_1_${i}.jpg`, import.meta.url).href);
 }
+
+// Импортируем изображения из Equip.
+// Обратите внимание на пути: возможно, вам нужно подправить их в зависимости от реальной структуры проекта.
+import BM670 from '../vendor/images/carousel/mixcement.png';
+import XLStation from '../vendor/images/carousel/xl.png';
+import VStation from '../vendor/images/carousel/v-series.png';
+import pumpMinStation from '../vendor/images/carousel/pumpmin.png';
+
+import bm670img from '../vendor/images/buttons/button_bm670.png';
+import xlImg from '../vendor/images/buttons/button_xl.png';
+import vImg from '../vendor/images/buttons/button_v-series.png';
+import pumpMinImg from '../vendor/images/buttons/button_rm-l.png';
+
+// Объединяем изображения Equip в массив
+const equipImages = [
+  BM670,
+  XLStation,
+  VStation,
+  pumpMinStation,
+  bm670img,
+  xlImg,
+  vImg,
+  pumpMinImg
+];
+
+// Формируем общий массив ресурсов для предзагрузки
+const allImagesToLoad = [...frames, ...equipImages];
 
 interface LoadingContextValue {
   isLoading: boolean;
@@ -21,9 +49,9 @@ export const LoadingProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   useEffect(() => {
     let loadedCount = 0;
-    const totalResources = frames.length;
+    const totalResources = allImagesToLoad.length;
 
-    frames.forEach(src => {
+    allImagesToLoad.forEach(src => {
       const img = new Image();
       img.src = src;
       img.onload = () => {
