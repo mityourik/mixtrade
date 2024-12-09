@@ -32,11 +32,17 @@ const Preloader: React.FC = () => {
       justifyContent: 'center', 
       height: '100vh'
     }}>
-      <p>Загружается сайт... {progress}%</p>
+      <p style={{
+        marginBottom: '5px',
+        color: '#fff',
+        fontSize: '14px'
+      }}>
+        Загружается сайт... {progress}%
+      </p>
       <div style={{width: '200px', height: '10px', background: '#ccc'}}>
         <div style={{
           width: `${progress}%`, 
-          height: '100%', 
+          height: '100%',
           background: 'green', 
           transition: 'width 0.3s'
         }}></div>
