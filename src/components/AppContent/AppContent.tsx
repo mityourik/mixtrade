@@ -8,7 +8,6 @@ import Equip from '../Equip/Equip';
 import Equipment from '../Equipment/Equipment';
 import Feedback, { FeedbackProps } from '../Feedback/Feedback';
 import Footer from '../Footer/Footer';
-import HeroSection from '../HeroSection/HeroSection';
 import NewGuarantee from '../NewGuarantee/NewGuarantee';
 import OrderPage from '../OrderPage/OrderPage';
 import Preloader from '../Preloader/Preloader';
@@ -19,6 +18,7 @@ import Spares from '../Spares/Spares';
 import Support from '../Support/Support';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import FeedbackSpares from '../FeedbackSpares/FeedbackSpares';
+import Hero from '../Hero/Hero';
 
 const AppContent: React.FC = () => {
   const [feedbackData, setFeedbackData] = useState<FeedbackProps | null>(null);
@@ -49,7 +49,7 @@ const AppContent: React.FC = () => {
           element={
             <div className="scroll-container">
               <div className="scroll-section">
-                <HeroSection />
+                <Hero />
               </div>
               <div className="scroll-section">
                 <Equipment />
