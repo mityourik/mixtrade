@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const updateVideoSource = () => {
       if (videoRef.current) {
-        if (window.matchMedia('(max-width: 690px)').matches) {
+        if (window.matchMedia('(max-width: 576px)').matches) {
           videoRef.current.src = mobileVideo;
         } else {
           videoRef.current.src = heroVideo;
