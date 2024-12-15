@@ -176,9 +176,17 @@
   }
 
   @media screen and (max-width: 789px) {
-    // &__container {
-    //   left: 0;
-    // }
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &__container {
+      top: 14vh;
+    }
+
+    &__subtitle {
+      max-width: 230px;
+    }
+
 
     &__title {
       font-size: 20px;
@@ -187,7 +195,7 @@
 
     &__video {
       position: absolute;
-      top: 80px;
+      top: 20vh;
       left: 50%;
       transform: translateX(-50%);
       width: 100%;
