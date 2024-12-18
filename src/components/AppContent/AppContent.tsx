@@ -19,6 +19,7 @@ import Support from '../Support/Support';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import FeedbackSpares from '../FeedbackSpares/FeedbackSpares';
 import Hero from '../Hero/Hero';
+import GuaranteeDetails from '../GuaranteeDetails/GuaranteeDetails';
 
 const AppContent: React.FC = () => {
   const [feedbackData, setFeedbackData] = useState<FeedbackProps | null>(null);
@@ -87,6 +88,7 @@ const AppContent: React.FC = () => {
         <Route path="/feedback" element={<Feedback {...feedbackData} />} />
         <Route path="/feedback-spares" element={<FeedbackSpares />} />
         <Route path="/guarantee" element={<NewGuarantee />} />
+        <Route path="/mixtrade/guarantee-details" element={<GuaranteeDetails />} />
       </Routes>
     </>
   );

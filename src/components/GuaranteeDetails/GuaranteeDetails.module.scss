@@ -1,0 +1,65 @@
+@import '../../styles/variables.scss';
+
+.guarantee-details {
+  background-color: $background-red;
+  color: $white;
+  padding: 120px 40px 40px 60px;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  overflow-y: auto; /* Добавляем вертикальную прокрутку */
+  box-sizing: border-box; /* Рекомендуется для корректного учета паддингов */
+  
+  &__title {
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  &__list {
+    list-style: decimal;
+    list-style-position: inside;
+    max-width: 600px;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  &__list-item {
+    margin-bottom: 10px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &__sub-list {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+
+    li {
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__arrow-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  &__link {
+    display: inline-block;
+  }
+
+  &__arrow-image {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+  }
+}

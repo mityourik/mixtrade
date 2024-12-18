@@ -3,16 +3,25 @@ import { gsap } from 'gsap';
 import styles from './NewGuarantee.module.scss';
 import guaranteeImg from '../../vendor/images/guarantee.png';
 import ArrowButton from '../ArrowButton/ArrowButton';
+import { useNavigate } from 'react-router-dom';
 
 const NewGuarantee = () => {
   const [isTermsVisible, setIsTermsVisible] = useState(false);
+  
   const backgroundRef = useRef(null);
   const contentRef = useRef(null);
   const termsRef = useRef(null);
 
+  const navigate = useNavigate();
+
   const handleArrowClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+
+    if (window.innerWidth <= 775) {
+      navigate('/mixtrade/guarantee-details');
+      return;
+    }
   
     if (!isTermsVisible) {
       gsap.to(backgroundRef.current, {
