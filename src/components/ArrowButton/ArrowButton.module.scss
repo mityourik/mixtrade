@@ -23,3 +23,15 @@
   cursor: pointer;
   padding-top: 1vh;
 }
+
+@media (max-width: 980px) {
+  .arrowButton__image {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .arrowButton__image {
+    width: 3rem;
+  }
+}

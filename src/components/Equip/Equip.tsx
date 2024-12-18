@@ -3,7 +3,7 @@ import styles from './Equip.module.scss';
 import { Link } from 'react-router-dom';
 
 // изображения оборудования
-import BM670 from '../../vendor/images/carousel/mixcement.png';
+import BM670 from '../../vendor/images/BM-670.png';
 import XLStation from '../../vendor/images/carousel/xl.png';
 import VStation from '../../vendor/images/carousel/v-series.png';
 import pumpMinStation from '../../vendor/images/carousel/pumpmin.png';
