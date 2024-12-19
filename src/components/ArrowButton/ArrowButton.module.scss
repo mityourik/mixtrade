@@ -6,6 +6,10 @@
   color: $white;
   font-size: 1.2rem;
   text-decoration: none;
+
+  @media (max-width: 775px) {
+    font-size: 0.7rem;
+  }
 }
 
 .arrowButton__back_link {
@@ -22,6 +26,10 @@
   margin-left: 1rem;
   cursor: pointer;
   padding-top: 1vh;
+
+  @media (max-width: 775px) {
+    padding-top: 0.8vh;
+  }
 }
 
 @media (max-width: 980px) {

@@ -58,7 +58,7 @@ const AppContent: React.FC = () => {
               <div className="scroll-section">
                 <Equip />
               </div>
-              <div className="scroll-section">
+              <div className="scroll-section" id="guarantee">
                 <NewGuarantee />
               </div>
               <div className="scroll-section">
