@@ -108,7 +108,7 @@
       width: 1500px;
       height: 750px;
       top: 0;
-      left: -500px;
+      left: 0;
       background-image: url("/mixtrade/src/vendor/images/red-phone-mob.svg");
       background-size: contain;
       background-position: center;
@@ -128,6 +128,10 @@
     &__description {
       font-size: 10px;
       font-weight: 400;
+    }
+
+    &__icons {
+      justify-content: flex-end;
     }
 
     &__icon {
