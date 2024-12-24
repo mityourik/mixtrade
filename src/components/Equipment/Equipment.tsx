@@ -13,10 +13,6 @@ const Equipment: React.FC = () => {
   const textRef = useRef<HTMLDivElement>(null);
 
   const [loadedImages, setLoadedImages] = useState<HTMLImageElement[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [loadedCount, setLoadedCount] = useState(0);
-
-  const imagesCount = Object.keys(images).length;
 
   useEffect(() => {
     const loadImages = async () => {
@@ -39,13 +35,11 @@ const Equipment: React.FC = () => {
 
         return new Promise<void>((resolve) => {
           img.onload = () => {
-            imageElements[index] = img; // Сохраняем изображение по индексу
-            setLoadedCount((prev) => prev + 1);
+            imageElements[index] = img;
             resolve();
           };
           img.onerror = () => {
             console.error(`Ошибка загрузки изображения: ${module.default}`);
-            setLoadedCount((prev) => prev + 1);
             resolve();
           };
         });
@@ -53,14 +47,14 @@ const Equipment: React.FC = () => {
 
       await Promise.all(promises);
       setLoadedImages(imageElements);
-      setIsLoaded(true);
     };
 
     loadImages();
   }, []);
 
   useEffect(() => {
-    if (isLoaded && sectionRef.current && textRef.current && canvasRef.current) {
+    // Дожидаемся, пока хотя бы одно изображение будет загружено:
+    if (loadedImages.length && sectionRef.current && textRef.current && canvasRef.current) {
       const sectionElement = sectionRef.current;
       const textElement = textRef.current;
       const canvasElement = canvasRef.current;
@@ -76,7 +70,11 @@ const Equipment: React.FC = () => {
       setCanvasSize();
 
       const render = (frameIndex: number) => {
-        const index = Math.min(loadedImages.length - 1, Math.max(0, Math.floor(frameIndex)));
+        const index = Math.min(
+          loadedImages.length - 1,
+          Math.max(0, Math.floor(frameIndex))
+        );
+
         if (index !== currentFrameIndex) {
           const image = loadedImages[index];
           if (context && image) {
@@ -105,8 +103,10 @@ const Equipment: React.FC = () => {
         }
       };
 
+      // Начальный кадр
       render(0);
 
+      // Анимация текста при скролле
       gsap.fromTo(
         textElement,
         { xPercent: 100 },
@@ -128,19 +128,23 @@ const Equipment: React.FC = () => {
         }
       );
 
-      gsap.to({}, {
-        scrollTrigger: {
-          trigger: sectionElement,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: true,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            const frameIndex = progress * (loadedImages.length - 1);
-            render(frameIndex);
+      // Анимация подгрузки кадров
+      gsap.to(
+        {},
+        {
+          scrollTrigger: {
+            trigger: sectionElement,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const frameIndex = progress * (loadedImages.length - 1);
+              render(frameIndex);
+            },
           },
-        },
-      });
+        }
+      );
 
       const handleResize = () => {
         setCanvasSize();
@@ -154,23 +158,7 @@ const Equipment: React.FC = () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }
-  }, [isLoaded, loadedImages]);
-
-  if (!isLoaded) {
-    const progressPercentage = (loadedCount / imagesCount) * 100;
-
-    return (
-      <div className={styles['loading']}>
-        <p>Загрузка...</p>
-        <div className={styles['progress-bar']}>
-          <div
-            className={styles['progress-bar__fill']}
-            style={{ width: `${progressPercentage}%` }}
-          ></div>
-        </div>
-      </div>
-    );
-  }
+  }, [loadedImages]);
 
   return (
     <section className={styles.equipment} ref={sectionRef}>
